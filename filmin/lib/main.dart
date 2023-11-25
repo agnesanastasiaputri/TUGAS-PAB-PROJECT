@@ -21,16 +21,7 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:wisata_candi/data/candi_data.dart';
-import 'package:wisata_candi/screens/detail_screen.dart';
-import 'package:wisata_candi/screens/favorite_screen.dart';
-import 'package:wisata_candi/screens/home_screen.dart';
-import 'package:wisata_candi/screens/profile_screen.dart';
-import 'package:wisata_candi/screens/search_screen.dart';
-import 'package:wisata_candi/screens/sign_in.dart';
-import 'package:wisata_candi/screens/sign_up_screen.dart';
-import 'package:wisata_candi/screens/home_screen.dart';
-import 'package:wisata_candi/widgets/item_card.dart';
+import 'package:filmin/screens/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -72,8 +63,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes:{
         '/homescreen' : (context) => const HomeScreen(),
-        '/signin' : (context) => SignInScreen(),
-        '/signup' : (context) => const SignUpScreen(),
+        // '/signin' : (context) => SignInScreen(),
+        // '/signup' : (context) => const SignUpScreen(),
       }
     );
   }
@@ -90,9 +81,9 @@ class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
   final List<Widget> _children = [
     HomeScreen(),
-    RateScreen(),
-    FavoriteScreen(),
-    ProfileScreen(),
+    // RateScreen(),
+    // FavoriteScreen(),
+    // ProfileScreen(),
   ];
 
   @override
