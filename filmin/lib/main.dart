@@ -20,6 +20,8 @@
 // }
 
 
+import 'package:filmin/screens/logo_screen.dart';
+import 'package:filmin/screens/sign_in_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:filmin/screens/home_screen.dart';
 
@@ -33,31 +35,31 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Wisata Candi',
+      title: 'FILMIN',  //nama di web
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
-          iconTheme: IconThemeData(color: Colors.deepPurple),
+          iconTheme: IconThemeData(color: Colors.white),
           titleTextStyle: TextStyle(
-            color: Colors.deepPurple,
+            color: Colors.white,
             fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
         ),
         colorScheme:
-            ColorScheme.fromSeed(seedColor: Colors.deepPurple).copyWith(
-          primary: Colors.deepPurple,
-          surface: Colors.deepPurple[50],
+            ColorScheme.fromSeed(seedColor: Colors.black).copyWith(
+          primary: Colors.black,  //tulisan di button
+          surface: Colors.black87,  //background tulisan filmin
         ),
         useMaterial3: true,
         // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         // useMaterial3: true,
       ),
       //home: SignUpScreen()
-      home: MainScreen(),
+      // home: MainScreen(),
       //home: HomeScreen(),
       //home: SearchScreen(),
-      //home: SignInScreen(),
+      home: SignInScreen(),
       //home: ProfileScreen(),
       //home: DetailScreen(candi: candiList[0]),
       initialRoute: '/',
@@ -94,7 +96,7 @@ class _MainScreenState extends State<MainScreen> {
       //TODO: 3. Buat properti bottonNavigationBar dengan nilai Theme
       bottomNavigationBar: Theme(
         //TODO: 4. Buat data dan child dari Theme
-        data: Theme.of(context).copyWith(canvasColor: Colors.deepPurple[50]),
+        data: Theme.of(context).copyWith(canvasColor: Colors.black),
         child: BottomNavigationBar(
           currentIndex: _currentIndex,
           onTap: (index) {
@@ -106,32 +108,32 @@ class _MainScreenState extends State<MainScreen> {
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.home,
-                  color: Colors.deepPurple,
+                  color: Colors.white,
                 ),
                 label: 'Home'),
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.star,
-                  color: Colors.deepPurple,
+                  color: Colors.white,
                 ),
                 label: 'Rate'),
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.favorite,
-                color: Colors.deepPurple,
+                color: Colors.white,
               ),
               label: 'Favorite',
             ),
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.person,
-                color: Colors.deepPurple,
+                color: Colors.white,
               ),
               label: 'Profile',
             ),
           ],
-          selectedItemColor: Colors.deepPurple,
-          unselectedItemColor: Colors.deepPurple[100],
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.white70,
           showUnselectedLabels: true,
         ),
       ),

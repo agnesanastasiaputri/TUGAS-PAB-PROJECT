@@ -24,9 +24,9 @@ class _HomeScreenState extends State<HomeScreen> {
         itemCount: filmList.length,
         itemBuilder: (context, index) {
           Film film = filmList[index];
-          return FilmCard(
-            film: film,
-          );
+          // return FilmCard(
+          //   film: film,
+          // );
         },
       ),
     );
