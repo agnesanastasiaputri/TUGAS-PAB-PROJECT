@@ -1,25 +1,3 @@
-// import 'package:flutter/material.dart';
-// import 'package:filmin/screens/logo_screen.dart';
-
-// void main() {
-//   runApp(MyApp());
-// }
-
-// class MyApp extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'FILMIN',
-//       initialRoute: '/',
-//       routes: {
-//         '/': (context) => LogoScreen(),
-        
-//       },
-//     );
-//   }
-// }
-
-
 import 'package:flutter/material.dart';
 import 'package:filmin/screens/home_screen.dart';
 
@@ -33,105 +11,112 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Wisata Candi',
+      title: 'FILMIN',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
-          iconTheme: IconThemeData(color: Colors.deepPurple),
+          iconTheme: IconThemeData(color: Color.fromARGB(255, 255, 255, 255)),
           titleTextStyle: TextStyle(
-            color: Colors.deepPurple,
+            color: Color.fromARGB(255, 255, 255, 255),
             fontSize: 20,
-            fontWeight: FontWeight.bold,
           ),
         ),
-        colorScheme:
-            ColorScheme.fromSeed(seedColor: Colors.deepPurple).copyWith(
-          primary: Colors.deepPurple,
-          surface: Colors.deepPurple[50],
-        ),
         useMaterial3: true,
-        // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        // useMaterial3: true,
       ),
-      //home: SignUpScreen()
       home: MainScreen(),
-      //home: HomeScreen(),
-      //home: SearchScreen(),
-      //home: SignInScreen(),
-      //home: ProfileScreen(),
-      //home: DetailScreen(candi: candiList[0]),
       initialRoute: '/',
-      routes:{
-        '/homescreen' : (context) => const HomeScreen(),
-        // '/signin' : (context) => SignInScreen(),
-        // '/signup' : (context) => const SignUpScreen(),
-      }
+      routes: {
+        '/homescreen': (context) => const HomeScreen(),
+      },
     );
   }
 }
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
+
   @override
   State<MainScreen> createState() => _MainScreenState();
 }
 
 class _MainScreenState extends State<MainScreen> {
-  //TODO: 1. Deklarasikan variabel
   int _currentIndex = 0;
   final List<Widget> _children = [
     HomeScreen(),
-    // RateScreen(),
-    // FavoriteScreen(),
-    // ProfileScreen(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //TODO: 2. Buat properti body berupa widget yang ditampilkan
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        leading: IconButton(
+          icon: Icon(Icons.menu),
+          onPressed: () {
+            print('Menu button pressed');
+          },
+        ),
+        title: Text(
+          'FILMIN',
+          style: TextStyle(
+            color: Colors.white, // Warna teks title
+            fontSize: 20,
+          ),
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {
+              print('Search button pressed');
+            },
+          ),
+        ],
+      ),
       body: _children[_currentIndex],
-      //TODO: 3. Buat properti bottonNavigationBar dengan nilai Theme
       bottomNavigationBar: Theme(
-        //TODO: 4. Buat data dan child dari Theme
-        data: Theme.of(context).copyWith(canvasColor: Colors.deepPurple[50]),
+        data: Theme.of(context).copyWith(
+          canvasColor: Colors.black,
+        ),
         child: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
           currentIndex: _currentIndex,
           onTap: (index) {
             setState(() {
               _currentIndex = index;
             });
           },
-          items: const [
+          items: [
             BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.home,
-                  color: Colors.deepPurple,
-                ),
-                label: 'Home'),
+              icon: Icon(
+                Icons.home,
+                color: Colors.white,
+              ),
+              label: 'Home',
+            ),
             BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.star,
-                  color: Colors.deepPurple,
-                ),
-                label: 'Rate'),
+              icon: Icon(
+                Icons.star,
+                color: Colors.white,
+              ),
+              label: 'Rate',
+            ),
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.favorite,
-                color: Colors.deepPurple,
+                color: Colors.white,
               ),
               label: 'Favorite',
             ),
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.person,
-                color: Colors.deepPurple,
+                color: Colors.white,
               ),
               label: 'Profile',
             ),
           ],
-          selectedItemColor: Colors.deepPurple,
-          unselectedItemColor: Colors.deepPurple[100],
+          selectedItemColor: Color.fromARGB(255, 196, 189, 189),
+          unselectedItemColor: Color.fromARGB(255, 255, 255, 255),
           showUnselectedLabels: true,
         ),
       ),

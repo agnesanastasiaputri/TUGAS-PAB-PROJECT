@@ -14,9 +14,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('FILMIN'),
-      ),
+      backgroundColor: const Color.fromARGB(255, 26, 25, 25),
       body: GridView.builder(
         gridDelegate:
             SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 1),
