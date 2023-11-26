@@ -3,63 +3,67 @@ import 'package:filmin/models/film.dart';
 // import 'package:filmin/screens/detail_screen.dart';
 
 class FilmCard extends StatelessWidget {
-  //TODO: 1. Deklarasikan variabel yang dibutuhkan dan pasang pada konstruktor
   final Film film;
-
-  const FilmCard({super.key, required this.film});
+  const FilmCard({Key? key, required this.film}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    //TODO: 6. Implementasi routing ke DetailScreen
     return InkWell(
-      // onTap: () {
-      //   Navigator.push(
-      //     context,
-      //     MaterialPageRoute(builder: (context) => DetailScreen(film: film)),
-      //   );
-      // },
       child: Card(
-        //TODO: 2. Tetapkan parameter shape, margin, dan elevation dari Card
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-        margin: EdgeInsets.all(4),
-        elevation: 1,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            //TODO: 3. Buat Image sebagai anak dari Column
-            Expanded(
-              //TODO: 7. Implementasi Hero animation
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(15),
-                child: Image.asset(
-                  film.imageAsset,
-                  width: double.infinity,
-                  fit: BoxFit.cover,
+        margin: const EdgeInsets.symmetric(
+          horizontal: 2,
+          vertical: 2,
+        ),
+        child: Container(
+          constraints:
+              BoxConstraints.expand(), // Mengambil sebanyak mungkin ruang
+          color: Color.fromARGB(255, 255, 255, 255),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                width: 70,
+                height: 100,
+                child: ClipRRect(
+                  borderRadius:
+                      BorderRadius.circular(8), // Atur sesuai kebutuhan
+                  child: Image.asset(
+                    film.imageAsset,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
-            ),
-            //TODO: 4. Buat Text sebagai anak dari Column
-            Padding(
-              padding: EdgeInsets.only(left: 16, top: 8),
-              child: Text(
-                film.judul,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        film.judul,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: const [
+                          Icon(Icons.star, size: 16, color: Colors.yellow),
+                          SizedBox(width: 4),
+                          // Text(
+                          //   '${film.rating}',
+                          //   style: TextStyle(fontSize: 14),
+                          // ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-            //TODO: 5. Buat Text sebagai anak dari Column
-            Padding(
-              padding: EdgeInsets.only(left: 16, top: 8),
-              child: Text(
-                film.tanggalRilis,
-                style: TextStyle(
-                  fontSize: 12,
-                ),
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
