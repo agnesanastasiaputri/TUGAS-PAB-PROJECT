@@ -56,10 +56,10 @@ class MyApp extends StatelessWidget {
         // useMaterial3: true,
       ),
       //home: SignUpScreen()
-      // home: MainScreen(),
-      //home: HomeScreen(),
+      home: MainScreen(),
+      // home: HomeScreen(),
       //home: SearchScreen(),
-      home: SignInScreen(),
+      // home: SignInScreen(),
       //home: ProfileScreen(),
       //home: DetailScreen(candi: candiList[0]),
       initialRoute: '/',
