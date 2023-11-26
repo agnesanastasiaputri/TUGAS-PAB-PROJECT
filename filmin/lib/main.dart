@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
-          iconTheme: IconThemeData(color: Color.fromARGB(255, 255, 255, 255)),
+          iconTheme: IconThemeData(color: Colors.white),
           titleTextStyle: TextStyle(
             color: Color.fromARGB(255, 255, 255, 255),
             fontSize: 20,
@@ -74,9 +74,8 @@ class _MainScreenState extends State<MainScreen> {
       ),
       body: _children[_currentIndex],
       bottomNavigationBar: Theme(
-        data: Theme.of(context).copyWith(
-          canvasColor: Colors.black,
-        ),
+        //TODO: 4. Buat data dan child dari Theme
+        data: Theme.of(context).copyWith(canvasColor: Colors.black),
         child: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           currentIndex: _currentIndex,
