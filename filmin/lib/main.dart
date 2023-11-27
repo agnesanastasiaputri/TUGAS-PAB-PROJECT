@@ -1,3 +1,4 @@
+import 'package:filmin/widgets/film_card.dart';
 import 'package:flutter/material.dart';
 import 'package:filmin/screens/home_screen.dart';
 
