@@ -1,3 +1,5 @@
+import 'package:filmin/screens/favorite_screen.dart';
+import 'package:filmin/screens/rate_screen.dart';
 import 'package:filmin/widgets/film_card.dart';
 import 'package:flutter/material.dart';
 import 'package:filmin/screens/home_screen.dart';
@@ -28,6 +30,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/homescreen': (context) => const HomeScreen(),
+        '/ratescreen': (context) => const RateScreen(),
+        '/favoritescreen' : (context) => const FavoriteScreen(),
       },
     );
   }
@@ -44,13 +48,15 @@ class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
   final List<Widget> _children = [
     HomeScreen(),
+    RateScreen(),
+    FavoriteScreen()
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: Color.fromARGB(255, 19, 17, 17),
         leading: IconButton(
           icon: Icon(Icons.menu),
           onPressed: () {
@@ -76,7 +82,7 @@ class _MainScreenState extends State<MainScreen> {
       body: _children[_currentIndex],
       bottomNavigationBar: Theme(
         //TODO: 4. Buat data dan child dari Theme
-        data: Theme.of(context).copyWith(canvasColor: Colors.black),
+        data: Theme.of(context).copyWith(canvasColor: Color.fromARGB(255, 19, 17, 17)),
         child: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           currentIndex: _currentIndex,

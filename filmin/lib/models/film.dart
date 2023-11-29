@@ -7,6 +7,8 @@ class Film {
   final String bahasa;
   final String negara;
   final String imageAsset;
+  final double rating;
+  final int favorite;
   final List<String> imageUrls;
   bool isFavorite;
 
@@ -19,7 +21,10 @@ class Film {
     required this.bahasa,
     required this.negara,
     required this.imageAsset,
+    required this.rating,
+    required this.favorite,
     required this.imageUrls,
-    this.isFavorite = false,
+    this.isFavorite = false, 
   });
+
 }

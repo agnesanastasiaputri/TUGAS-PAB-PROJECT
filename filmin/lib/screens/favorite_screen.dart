@@ -3,18 +3,19 @@ import 'package:filmin/widgets/film_card.dart';
 import 'package:flutter/material.dart';
 import 'package:filmin/data/film_data.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class FavoriteScreen extends StatefulWidget {
+  const FavoriteScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<FavoriteScreen> createState() => _FavoriteScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _FavoriteScreenState extends State<FavoriteScreen> {
   List<Film> _filterFilms = filmList;
 
   @override
   Widget build(BuildContext context) {
+    _filterFilms.sort((a, b) => b.favorite.compareTo(a.favorite));
     return Scaffold(
       backgroundColor: Colors.black,
       body: Column(
