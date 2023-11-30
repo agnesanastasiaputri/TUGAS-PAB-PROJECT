@@ -9,6 +9,7 @@ class NavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      backgroundColor: Colors.black,
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
@@ -17,8 +18,8 @@ class NavBar extends StatelessWidget {
             accountEmail: Text('Saputra@gmail.com'),
             currentAccountPicture: CircleAvatar(
               child: ClipOval(
-                child: Image.network(
-                  '',
+                child: Image.asset(
+                  'images/logo.jpg',
                   width: 90,
                   height: 90,
                   fit: BoxFit.cover,
@@ -27,31 +28,33 @@ class NavBar extends StatelessWidget {
             ),
             decoration: BoxDecoration(
               color: Color.fromARGB(255, 19, 17, 17)
-            ),
-            ),
+          )),
           ListTile(
+            iconColor: Colors.white,
             leading: Icon(Icons.home),
             title: Text('Halaman Depan'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => HomeScreen())
-                );
-            },
+            textColor: Colors.white,
+            onTap: () => null
           ),
           ListTile(
+            iconColor: Colors.white,
             leading: Icon(Icons.star),
             title: Text('Rekomendasi Film'),
-            onTap: () => RateScreen(),
+            textColor: Colors.white,
+            onTap: () => null
           ),
           ListTile(
+            iconColor: Colors.white,
             leading: Icon(Icons.favorite),
             title: Text('Favorit'),
-            onTap: () => FavoriteScreen(),
+            textColor: Colors.white,
+            onTap: () => null
           ),
           ListTile(
+            iconColor: Colors.white,
             leading: Icon(Icons.person),
             title: Text('Profile'),
+            textColor: Colors.white,
             onTap: () => null,
           ),
         ],
