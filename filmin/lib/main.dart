@@ -3,6 +3,7 @@ import 'package:filmin/screens/rate_screen.dart';
 import 'package:filmin/widgets/film_card.dart';
 import 'package:flutter/material.dart';
 import 'package:filmin/screens/home_screen.dart';
+import 'package:filmin/screens/navbar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -55,14 +56,15 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: NavBar(),
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 19, 17, 17),
-        leading: IconButton(
-          icon: Icon(Icons.menu),
-          onPressed: () {
-            print('Menu button pressed');
-          },
-        ),
+        // leading: IconButton(
+        //   icon: Icon(Icons.menu),
+        //   onPressed: () {
+        //     print('Menu button pressed');
+        //   },
+        // ),
         title: Text(
           'FILMIN',
           style: TextStyle(
