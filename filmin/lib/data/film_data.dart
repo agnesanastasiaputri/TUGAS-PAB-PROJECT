@@ -259,7 +259,7 @@ var filmList = [
     tanggalRilis: '24 Desember 2021',
     bahasa: 'Inggris',
     negara: 'Amerika',
-    imageAsset: 'images/doraemon.jpeg',
+    imageAsset: 'images/doraemon.jpg',
     imageUrls: [
       'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amctheatres.com%2Fmovies%2Fthe-hunger-games-the-ballad-of-songbirds-snakes-69677&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABAn',
       'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.imdb.com%2Ftitle%2Ftt10545296%2F&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABAv',
