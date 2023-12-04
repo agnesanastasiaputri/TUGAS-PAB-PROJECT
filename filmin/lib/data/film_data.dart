@@ -25,7 +25,7 @@ var filmList = [
     rating: 8.8,
     favorite: 2200000,
     sinopsis: 
-        'Puluhan tahun sebelum Coriolanus Snow menjadi presiden Panem yang kejam, ia adalah pemuda berusia 18 tahun yang tampan dan memesona. Coriolanus menjadi harapan terakhir garis keturunan Snow yang sebelumnya dibanggakan, tetapi gagal dan jatuh miskin pascaperang di Capitol. Dengan mata pencaharian yang terancam, Coriolanus hanya memiliki kesempatan untuk mengubah nasib saat dipilih sebagai mentor Hunger Games ke-10. Kesempatan itu sempat membuat Coriolanus goyah karena harus menjadi mentor dari Lucy Gray Baird, tribut Distrik 12 yang miskin. Akan tetapi, pesona Lucy yang memikat hati para penduduk membuat Coriolanus bekerja sama dengannya. Melawan naluri baik dan jahat, Coriolanus berjuang untuk bertahan hidup.',
+        'Forrest Gump, seorang pria ber IQ rendah - namun baik hati, bergabung dengan tentara untuk mengabdi. Namun, benaknya seolah tidak bisa berhenti memikirkan sang kekasih masa kecilnya, Jenny Curran.',
     director: 'Robert Zemeckis',
     penulis: 'Winston Groom, Eric Roth',
     tanggalRilis: '16 Juli 1994',
@@ -63,7 +63,7 @@ var filmList = [
     rating: 8.2,
     favorite: 843000,
     sinopsis: 
-        'Puluhan tahun sebelum Coriolanus Snow menjadi presiden Panem yang kejam, ia adalah pemuda berusia 18 tahun yang tampan dan memesona. Coriolanus menjadi harapan terakhir garis keturunan Snow yang sebelumnya dibanggakan, tetapi gagal dan jatuh miskin pascaperang di Capitol. Dengan mata pencaharian yang terancam, Coriolanus hanya memiliki kesempatan untuk mengubah nasib saat dipilih sebagai mentor Hunger Games ke-10. Kesempatan itu sempat membuat Coriolanus goyah karena harus menjadi mentor dari Lucy Gray Baird, tribut Distrik 12 yang miskin. Akan tetapi, pesona Lucy yang memikat hati para penduduk membuat Coriolanus bekerja sama dengannya. Melawan naluri baik dan jahat, Coriolanus berjuang untuk bertahan hidup.',
+        'identitas asli dari pahlawan nan ramah ini terbongkar, sehingga membuat tanggung jawabnya sebagai seorang berkekuatan super berbenturan dengan kehidupan normalnya, dan menempatkan semua orang terdekatnya dalam posisi paling terancam.',
     director: 'Jon Watts',
     penulis: 'Chris McKenna, Erik Sommers, Stan Lee',
     tanggalRilis: '17 Desember 2021',
