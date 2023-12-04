@@ -82,7 +82,7 @@ var filmList = [
     rating: 8,
     favorite: 288,
     sinopsis: 
-        'Puluhan tahun sebelum Coriolanus Snow menjadi presiden Panem yang kejam, ia adalah pemuda berusia 18 tahun yang tampan dan memesona. Coriolanus menjadi harapan terakhir garis keturunan Snow yang sebelumnya dibanggakan, tetapi gagal dan jatuh miskin pascaperang di Capitol. Dengan mata pencaharian yang terancam, Coriolanus hanya memiliki kesempatan untuk mengubah nasib saat dipilih sebagai mentor Hunger Games ke-10. Kesempatan itu sempat membuat Coriolanus goyah karena harus menjadi mentor dari Lucy Gray Baird, tribut Distrik 12 yang miskin. Akan tetapi, pesona Lucy yang memikat hati para penduduk membuat Coriolanus bekerja sama dengannya. Melawan naluri baik dan jahat, Coriolanus berjuang untuk bertahan hidup.',
+        'Carls Date mengikuti Carl Fredricksen saat dia dengan enggan setuju untuk berkencan dengan seorang teman wanita. Carl, yang menikah dengan Ellie selama beberapa dekade sebelum dia meninggal, tidak tahu bagaimana kencan bekerja akhir-akhir ini. Ini akan menjadi kencan pertamanya sejak kematian Ellie.',
     director: 'Bob Peterson',
     penulis: 'Bob Peterson',
     tanggalRilis: '16 Juni 2023',
@@ -101,7 +101,7 @@ var filmList = [
     rating: 5.8,
     favorite: 103000,
     sinopsis: 
-        'Puluhan tahun sebelum Coriolanus Snow menjadi presiden Panem yang kejam, ia adalah pemuda berusia 18 tahun yang tampan dan memesona. Coriolanus menjadi harapan terakhir garis keturunan Snow yang sebelumnya dibanggakan, tetapi gagal dan jatuh miskin pascaperang di Capitol. Dengan mata pencaharian yang terancam, Coriolanus hanya memiliki kesempatan untuk mengubah nasib saat dipilih sebagai mentor Hunger Games ke-10. Kesempatan itu sempat membuat Coriolanus goyah karena harus menjadi mentor dari Lucy Gray Baird, tribut Distrik 12 yang miskin. Akan tetapi, pesona Lucy yang memikat hati para penduduk membuat Coriolanus bekerja sama dengannya. Melawan naluri baik dan jahat, Coriolanus berjuang untuk bertahan hidup.',
+        'Selama banyak misi dan melawan rintangan yang mustahil, Dom Toretto dan keluarganya telah mengakali dan mengalahkan setiap musuh di jalan mereka. Sekarang, mereka menghadapi lawan paling mematikan yang pernah mereka hadapi: Ancaman mengerikan yang muncul dari bayang-bayang masa lalu yang dipicu oleh dendam berdarah, dan yang bertekad untuk menghancurkan keluarga ini dan menghancurkan segalanyadan semua orangyang dicintai Dom, selamanya. Dalam Fast Five 2011, Dom dan krunya mengalahkan gembong narkoba Brasil Hernan Reyes yang jahat dan memenggal kerajaannya di sebuah jembatan di Rio De Janeiro. Apa yang tidak mereka ketahui adalah bahwa putra Reyes, Dante, menyaksikan semuanya dan telah menghabiskan 12 tahun terakhir mendalangi rencana untuk membuat Dom membayar harga tertinggi. Plot Dante akan menyebarkan keluarga Dom dari Los Angeles ke katakombe Roma, dari Brasil ke London dan dari Portugal ke Antartika. Sekutu baru akan ditempa dan musuh lama akan muncul kembali.',
     director: 'Louis Leterrier',
     penulis: 'Dan Mazeau, Justin Lin, Zach Dean',
     tanggalRilis: '19 Mei 2023',
@@ -120,7 +120,7 @@ var filmList = [
     rating: 6.1,
     favorite: 3300,
     sinopsis: 
-        'Puluhan tahun sebelum Coriolanus Snow menjadi presiden Panem yang kejam, ia adalah pemuda berusia 18 tahun yang tampan dan memesona. Coriolanus menjadi harapan terakhir garis keturunan Snow yang sebelumnya dibanggakan, tetapi gagal dan jatuh miskin pascaperang di Capitol. Dengan mata pencaharian yang terancam, Coriolanus hanya memiliki kesempatan untuk mengubah nasib saat dipilih sebagai mentor Hunger Games ke-10. Kesempatan itu sempat membuat Coriolanus goyah karena harus menjadi mentor dari Lucy Gray Baird, tribut Distrik 12 yang miskin. Akan tetapi, pesona Lucy yang memikat hati para penduduk membuat Coriolanus bekerja sama dengannya. Melawan naluri baik dan jahat, Coriolanus berjuang untuk bertahan hidup.',
+        'Cerita The Big 4 berpusat pada Dina (Putri Marino), detektif yang dikenal lurus dan memegang teguh prinsip sebagai anggota polisi. Suatu hari, Dina mendapati sang ayah (Budi Ros) meninggal secara misterius. Ia berupaya mengungkap misteri kematian ayahnya dengan mengikuti petunjuk yang ditemukan.',
     director: 'Timo Tjahjanto',
     penulis: 'Timo Tjahjanto, Johanna Wattimena',
     tanggalRilis: '15 Desember 2022',
@@ -139,7 +139,7 @@ var filmList = [
     rating: 6.9,
     favorite: 459000,
     sinopsis: 
-        'Puluhan tahun sebelum Coriolanus Snow menjadi presiden Panem yang kejam, ia adalah pemuda berusia 18 tahun yang tampan dan memesona. Coriolanus menjadi harapan terakhir garis keturunan Snow yang sebelumnya dibanggakan, tetapi gagal dan jatuh miskin pascaperang di Capitol. Dengan mata pencaharian yang terancam, Coriolanus hanya memiliki kesempatan untuk mengubah nasib saat dipilih sebagai mentor Hunger Games ke-10. Kesempatan itu sempat membuat Coriolanus goyah karena harus menjadi mentor dari Lucy Gray Baird, tribut Distrik 12 yang miskin. Akan tetapi, pesona Lucy yang memikat hati para penduduk membuat Coriolanus bekerja sama dengannya. Melawan naluri baik dan jahat, Coriolanus berjuang untuk bertahan hidup.',
+        'Dr. Stephen Strange mengalami sebuah kecelakaan yang fatal yang merusak kemampuan motorik kedua tangannya. Demi kesembuhannya, ia mengunjungi seorang penyihir misterius bernama Ancient One di Tibet.',
     director: 'Sam Raimi',
     penulis: 'Michael Waldron, Stan Lee, Steve Ditko',
     tanggalRilis: '06 Mei 2022',
@@ -158,7 +158,7 @@ var filmList = [
     rating: 7.9,
     favorite: 1400000,
     sinopsis: 
-        'Puluhan tahun sebelum Coriolanus Snow menjadi presiden Panem yang kejam, ia adalah pemuda berusia 18 tahun yang tampan dan memesona. Coriolanus menjadi harapan terakhir garis keturunan Snow yang sebelumnya dibanggakan, tetapi gagal dan jatuh miskin pascaperang di Capitol. Dengan mata pencaharian yang terancam, Coriolanus hanya memiliki kesempatan untuk mengubah nasib saat dipilih sebagai mentor Hunger Games ke-10. Kesempatan itu sempat membuat Coriolanus goyah karena harus menjadi mentor dari Lucy Gray Baird, tribut Distrik 12 yang miskin. Akan tetapi, pesona Lucy yang memikat hati para penduduk membuat Coriolanus bekerja sama dengannya. Melawan naluri baik dan jahat, Coriolanus berjuang untuk bertahan hidup.',
+        'Seorang Marinir lumpuh dikirim ke bulan Pandora untuk menjalani misi khusus namun, ia justru dilema antara mengikuti perintah atau melindungi dunia baru yang iya rasakan seperti rumah.',
     director: 'James Cameron',
     penulis: 'James Cameron',
     tanggalRilis: '18 Desember 2009',
@@ -196,7 +196,7 @@ var filmList = [
     rating: 6,
     favorite: 763,
     sinopsis: 
-        'Puluhan tahun sebelum Coriolanus Snow menjadi presiden Panem yang kejam, ia adalah pemuda berusia 18 tahun yang tampan dan memesona. Coriolanus menjadi harapan terakhir garis keturunan Snow yang sebelumnya dibanggakan, tetapi gagal dan jatuh miskin pascaperang di Capitol. Dengan mata pencaharian yang terancam, Coriolanus hanya memiliki kesempatan untuk mengubah nasib saat dipilih sebagai mentor Hunger Games ke-10. Kesempatan itu sempat membuat Coriolanus goyah karena harus menjadi mentor dari Lucy Gray Baird, tribut Distrik 12 yang miskin. Akan tetapi, pesona Lucy yang memikat hati para penduduk membuat Coriolanus bekerja sama dengannya. Melawan naluri baik dan jahat, Coriolanus berjuang untuk bertahan hidup.',
+        'Adi dan Saman sering dihukum oleh Bu Woro, guru mereka yang disiplin dan galak. Suatu hari, kekesalan Adi dan Saman terhadap Bu Woro memuncak. Mereka menyumpahi guru itu bersamaan dengan kumandang adzan Maghrib.',
     director: 'Sidharta Tata',
     penulis: 'Agasyah Karim, Khalid Kashogi, Bayu Kurnia Prasetya',
     tanggalRilis: '09 Februari 2023',
@@ -215,7 +215,7 @@ var filmList = [
     rating: 6.2,
     favorite: 384000,
     sinopsis: 
-        'Puluhan tahun sebelum Coriolanus Snow menjadi presiden Panem yang kejam, ia adalah pemuda berusia 18 tahun yang tampan dan memesona. Coriolanus menjadi harapan terakhir garis keturunan Snow yang sebelumnya dibanggakan, tetapi gagal dan jatuh miskin pascaperang di Capitol. Dengan mata pencaharian yang terancam, Coriolanus hanya memiliki kesempatan untuk mengubah nasib saat dipilih sebagai mentor Hunger Games ke-10. Kesempatan itu sempat membuat Coriolanus goyah karena harus menjadi mentor dari Lucy Gray Baird, tribut Distrik 12 yang miskin. Akan tetapi, pesona Lucy yang memikat hati para penduduk membuat Coriolanus bekerja sama dengannya. Melawan naluri baik dan jahat, Coriolanus berjuang untuk bertahan hidup.',
+        'Thor: Love and Thunder menceritakan Thor dalam sebuah perjalanan yang belum pernah ia jalani – pencariankedamaian batin. Namun, masa pensiunnya terganggu oleh seorang pembunuh galaksi yang dikenal sebagai Gorr sang Dewa Jagal , yang ingin memusnahkan para dewa.',
     director: 'Taika Waititi',
     penulis: 'Taika Waititi, Jennifer Kaytin Robinson, Stan Lee',
     tanggalRilis: '08 Juli 2022',
@@ -234,7 +234,7 @@ var filmList = [
     rating: 7.9,
     favorite: 1300000,
     sinopsis: 
-        'Puluhan tahun sebelum Coriolanus Snow menjadi presiden Panem yang kejam, ia adalah pemuda berusia 18 tahun yang tampan dan memesona. Coriolanus menjadi harapan terakhir garis keturunan Snow yang sebelumnya dibanggakan, tetapi gagal dan jatuh miskin pascaperang di Capitol. Dengan mata pencaharian yang terancam, Coriolanus hanya memiliki kesempatan untuk mengubah nasib saat dipilih sebagai mentor Hunger Games ke-10. Kesempatan itu sempat membuat Coriolanus goyah karena harus menjadi mentor dari Lucy Gray Baird, tribut Distrik 12 yang miskin. Akan tetapi, pesona Lucy yang memikat hati para penduduk membuat Coriolanus bekerja sama dengannya. Melawan naluri baik dan jahat, Coriolanus berjuang untuk bertahan hidup.',
+        ' Cerita fiksi tentang tenggelamnya kapal Titanic, Jack Dawson (Leonardo DiCaprio) dan Rose DeWitt Bukater (Kate Winslet) penumpang dari golongan sosial berbeda jatuh cinta selama pelayaran perdana di kapal impian yang berakhir tragis.',
     director: 'James Cameron',
     penulis: 'Leonardo DiCaprio, Kate Winslet, Billy Zane',
     tanggalRilis: '31 Januari 2001',
@@ -253,7 +253,7 @@ var filmList = [
     rating: 7.5,
     favorite: 384000,
     sinopsis: 
-        'Puluhan tahun sebelum Coriolanus Snow menjadi presiden Panem yang kejam, ia adalah pemuda berusia 18 tahun yang tampan dan memesona. Coriolanus menjadi harapan terakhir garis keturunan Snow yang sebelumnya dibanggakan, tetapi gagal dan jatuh miskin pascaperang di Capitol. Dengan mata pencaharian yang terancam, Coriolanus hanya memiliki kesempatan untuk mengubah nasib saat dipilih sebagai mentor Hunger Games ke-10. Kesempatan itu sempat membuat Coriolanus goyah karena harus menjadi mentor dari Lucy Gray Baird, tribut Distrik 12 yang miskin. Akan tetapi, pesona Lucy yang memikat hati para penduduk membuat Coriolanus bekerja sama dengannya. Melawan naluri baik dan jahat, Coriolanus berjuang untuk bertahan hidup.',
+        'Suatu hari Nobita menemukan boneka beruang yang ditambal jahit tangan oleh nenek tercinta. Hal tersebut memicu kenangan mengharukan untuknya dan menanyakan kepada Doraemon apakah mereka dapat menggunakan mesin waktu untuk mengunjungi Nenek di masa lampau.',
     director: 'Ryuichi Yagi · Takashi Yamazaki',
     penulis: 'Fujio F. Fujiko · Omar Cancedda · Marlan Moore',
     tanggalRilis: '24 Desember 2021',
