@@ -62,6 +62,17 @@ class _DetailScreenState extends State<DetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 19, 17, 17),
+        title: Text(
+          '${widget.film.judul}',
+          style: TextStyle(
+            color: Colors.white, // Warna teks title
+            fontSize: 20,
+          ),
+        ),
+      ),
+      backgroundColor: Colors.black,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -82,27 +93,6 @@ class _DetailScreenState extends State<DetailScreen> {
                     ),
                   ),
                 ),
-                // tombol back kustom
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 32,
-                  ),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.deepPurple[100]?.withOpacity(0.8),
-                      shape: BoxShape.circle,
-                    ),
-                    child: IconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      icon: const Icon(
-                        Icons.arrow_back,
-                      ),
-                    ),
-                  ),
-                ),
               ],
             ),
             // DetailInfo
@@ -114,154 +104,217 @@ class _DetailScreenState extends State<DetailScreen> {
                   const SizedBox(
                     height: 16,
                   ),
-// info atas (nama candi dan tombol favorit
+                  // info atas (nama candi dan tombol favorit
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        widget.film.judul,
-                        style: const TextStyle(
+                        'Details',
+                        style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
+                          color: Colors.white
                         ),
                       ),
-                      IconButton(
-                        onPressed: () {
-                          _toggleFavorite();
-                        },
-                        icon: Icon(isSignedIn && isFavorite
-                        ? Icons.favorite : Icons.favorite_border,
-                        color: isSignedIn && isFavorite ? Colors.red : null,),
-                      )
                     ],
                   ),
                   const SizedBox(
-                    height: 16,
+                    height: 15,
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Icon(
-                        Icons.people_alt,
-                        color: Color.fromARGB(255, 255, 255, 255),
-                      ),
-                      const SizedBox(
-                        width: 8,
-                      ),
-                      const SizedBox(
-                        width: 70,
-                        child: Text(
-                          'Director',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
                       Text(
-                        ': ${widget.film.director}',
+                        'Judul',
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white
+                        ),
                       ),
                     ],
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Icon(
-                        Icons.people_alt,
-                        color: Color.fromARGB(255, 255, 255, 255),
-                      ),
-                      const SizedBox(
-                        width: 8,
-                      ),
-                      const SizedBox(
-                        width: 70,
-                        child: Text(
-                          'Penulis',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
                       Text(
-                        ': ${widget.film.penulis}',
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      const Icon(
-                        Icons.calendar_month,
-                        color: Color.fromARGB(255, 255, 255, 255),
-                      ),
-                      const SizedBox(
-                        width: 8,
-                      ),
-                      const SizedBox(
-                        width: 70,
-                        child: Text(
-                          'Tanggal Rilis',
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                        '${widget.film.judul}', 
+                        style: TextStyle(
+                          color: Colors.white
                         ),
                       ),
-                      Text(': ${widget.film.tanggalRilis}'),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      const Icon(
-                        Icons.home_work,
-                        color: Color.fromARGB(255, 255, 255, 255),
-                      ),
-                      const SizedBox(
-                        width: 8,
-                      ),
-                      const SizedBox(
-                        width: 70,
-                        child: Text(
-                          'Negara',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                      Text(': ${widget.film.negara}'),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      const Icon(
-                        Icons.home_filled,
-                        color: Color.fromARGB(255, 255, 255, 255),
-                      ),
-                      const SizedBox(
-                        width: 8,
-                      ),
-                      const SizedBox(
-                        width: 70,
-                        child: Text(
-                          'Bahasa',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                      Text(': ${widget.film.bahasa}'),
                     ],
                   ),
                   const SizedBox(
-                    height: 16,
+                    height: 5,
                   ),
-                  Divider(
-                    color: const Color.fromARGB(255, 255, 255, 255),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Director',
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        '${widget.film.director}', 
+                        style: TextStyle(
+                          color: Colors.white
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Writer',
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        '${widget.film.penulis}',
+                        style: TextStyle(
+                          color: Colors.white
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Release Date',
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        '${widget.film.tanggalRilis}',
+                        style: TextStyle(
+                          color: Colors.white
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Language',
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        '${widget.film.bahasa}',
+                        style: TextStyle(
+                          color: Colors.white
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Country',
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        '${widget.film.negara}',
+                        style: TextStyle(
+                          color: Colors.white
+                        ),
+                      ),
+                    ],
                   ),
                   const SizedBox(
                     height: 16,
                   ),
                   // info bawah (deskripsi)
-                  const Text(
-                    'Sinopsis',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Sinopsis',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white
+                        ),
+                      ),
+                    ],
                   ),
                   const SizedBox(
-                    height: 16,
+                    height: 10,
                   ),
-                  Text(widget.film.sinopsis),
+                  Center(
+                    child: Text(
+                      widget.film.sinopsis,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -271,16 +324,18 @@ class _DetailScreenState extends State<DetailScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Divider(
-                    color: Colors.deepPurple.shade100,
+                  Center(
+                      child: Text(
+                        'Cast',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white
+                        ),
+                      ),
                   ),
-                  const Text(
-                    'Galeri',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  
                   const SizedBox(
                     height: 10,
                   ),
@@ -296,9 +351,9 @@ class _DetailScreenState extends State<DetailScreen> {
                             onTap: () {},
                             child: Container(
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(12),
+                                borderRadius: BorderRadius.circular(50),
                                 border: Border.all(
-                                  color: Colors.deepPurple.shade100,
+                                  color: Colors.white,
                                   width: 2,
                                 ),
                               ),
@@ -312,7 +367,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                   placeholder: (context, url) => Container(
                                     width: 120,
                                     height: 120,
-                                    color: Colors.deepPurple[50],
+                                    color: Colors.white,
                                   ),
                                   errorWidget: (context, url, error) =>
                                       const Icon(Icons.error),
@@ -331,7 +386,7 @@ class _DetailScreenState extends State<DetailScreen> {
                     'Tap untuk memperbesar',
                     style: TextStyle(
                       fontSize: 12,
-                      color: Colors.black54,
+                      color: Colors.white,
                     ),
                   ),
                 ],
