@@ -1,4 +1,5 @@
 import 'package:filmin/screens/favorite_screen.dart';
+import 'package:filmin/screens/profile_screen.dart';
 import 'package:filmin/screens/rate_screen.dart';
 import 'package:filmin/widgets/film_card.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: MainScreen(),
+      home: ProfileScreen(),
       initialRoute: '/',
       routes: {
         '/homescreen': (context) => const HomeScreen(),
