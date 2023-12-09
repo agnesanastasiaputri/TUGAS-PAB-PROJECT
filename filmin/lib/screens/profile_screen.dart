@@ -8,6 +8,9 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  String username = 'Username';
+  String fullname = 'Fullname';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,38 +19,61 @@ class _ProfileScreenState extends State<ProfileScreen> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: false,
-        title: Row(
-          children: [
-            IconButton(
-              icon: Icon(
-                Icons.menu, // Ikon garis tiga (hamburger)
+        title: null,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            ClipOval(
+              child: Container(
+                width: 120,
+                height: 120,
                 color: Colors.white,
+                child: CircleAvatar(
+                  radius: 30,
+                  backgroundImage: NetworkImage('images/dd.png'),
+                ),
               ),
-              onPressed: () {
-                // Tambahkan fungsi yang ingin dijalankan saat tombol hamburger ditekan
-              },
             ),
-            SizedBox(width: 8), // Jarak antara ikon dan teks 'FILMIN'
+            SizedBox(height: 22),
+            // Menempatkan username di atas
             Text(
-              'FILMIN',
+              username,
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 20,
+                fontSize: 18,
+              ),
+            ),
+            SizedBox(height: 5), // Memberikan jarak antara username dan fullname
+            // Menempatkan fullname di bawah
+            Text(
+              fullname,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+              ),
+            ),
+            SizedBox(height: 24),
+
+            SizedBox(height: 100), // Memberikan ruang kosong di atas tombol Logout
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                primary: Colors.white,
+                onPrimary: Colors.black,
+                padding: EdgeInsets.symmetric(horizontal: 170), // Mengatur padding
+              ),
+              child: Text(
+                'SignOut',
+                style: TextStyle(
+                  color: Colors.black, // Mengatur warna teks menjadi hitam
+                  fontWeight: FontWeight.bold, // Mengatur tebal
+                ),
               ),
             ),
           ],
         ),
-        actions: [
-          IconButton(
-            icon: Icon(
-              Icons.search, // Ikon pencarian (search)
-              color: Colors.white,
-            ),
-            onPressed: () {
-              // Tambahkan fungsi yang ingin dijalankan saat tombol pencarian ditekan
-            },
-          ),
-        ],
       ),
     );
   }
