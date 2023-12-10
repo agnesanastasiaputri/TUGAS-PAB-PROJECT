@@ -1,5 +1,6 @@
 import 'package:filmin/screens/favorite_screen.dart';
 import 'package:filmin/screens/home_screen.dart';
+import 'package:filmin/screens/profile_screen.dart';
 import 'package:filmin/screens/rate_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -58,12 +59,23 @@ class NavBar extends StatelessWidget {
                             builder: (context) => FavoriteScreen()))
                   }),
           ListTile(
-            iconColor: Colors.white,
-            leading: Icon(Icons.person),
-            title: Text('Profile'),
-            textColor: Colors.white,
-            onTap: () => null,
-          ),
+              iconColor: Colors.white,
+              leading: Icon(Icons.person),
+              title: Text('Profile'),
+              textColor: Colors.white,
+              onTap: () => {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ProfileScreen()))
+                  }),
+          Divider(),
+          ListTile(
+              iconColor: Colors.white,
+              leading: Icon(Icons.exit_to_app),
+              title: Text('Sign Out'),
+              textColor: Colors.white,
+              onTap: () => null),
         ],
       ),
     );

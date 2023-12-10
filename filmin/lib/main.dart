@@ -62,12 +62,12 @@ class _MainScreenState extends State<MainScreen> {
       drawer: NavBar(),
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 19, 17, 17),
-        leading: IconButton(
-          icon: Icon(Icons.menu),
-          onPressed: () {
-            print('Menu button pressed');
-          },
-        ),
+        // leading: IconButton(
+        //   icon: Icon(Icons.menu),
+        //   onPressed: () {
+        //     print('Menu button pressed');
+        //   },
+        // ),
         title: Text(
           'FILMIN',
           style: TextStyle(
