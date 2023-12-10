@@ -9,7 +9,8 @@ class Film {
   final String imageAsset;
   final double rating;
   final int favorite;
-  final List<String> imageUrls;
+  final Map<String, String> castImageUrls;
+  // final List<String> imageUrls;
   bool isFavorite;
 
   Film({
@@ -23,7 +24,8 @@ class Film {
     required this.imageAsset,
     required this.rating,
     required this.favorite,
-    required this.imageUrls,
+    required this.castImageUrls,
+    // required this.imageUrls,
     this.isFavorite = false, 
   });
 

@@ -52,8 +52,10 @@ class NavBar extends StatelessWidget {
               title: Text('Favorit'),
               textColor: Colors.white,
               onTap: () => {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => FavoriteScreen()))
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => FavoriteScreen()))
                   }),
           ListTile(
             iconColor: Colors.white,

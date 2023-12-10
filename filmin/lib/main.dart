@@ -28,12 +28,13 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: ProfileScreen(),
+      home: MainScreen(),
       initialRoute: '/',
       routes: {
         '/homescreen': (context) => const HomeScreen(),
         '/ratescreen': (context) => const RateScreen(),
         '/favoritescreen' : (context) => const FavoriteScreen(),
+        '/profilescreen' : (context) => const ProfileScreen()
       },
     );
   }
@@ -51,7 +52,8 @@ class _MainScreenState extends State<MainScreen> {
   final List<Widget> _children = [
     HomeScreen(),
     RateScreen(),
-    FavoriteScreen()
+    FavoriteScreen(),
+    ProfileScreen()
   ];
 
   @override
@@ -60,12 +62,12 @@ class _MainScreenState extends State<MainScreen> {
       drawer: NavBar(),
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 19, 17, 17),
-        // leading: IconButton(
-        //   icon: Icon(Icons.menu),
-        //   onPressed: () {
-        //     print('Menu button pressed');
-        //   },
-        // ),
+        leading: IconButton(
+          icon: Icon(Icons.menu),
+          onPressed: () {
+            print('Menu button pressed');
+          },
+        ),
         title: Text(
           'FILMIN',
           style: TextStyle(

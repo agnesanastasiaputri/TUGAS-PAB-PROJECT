@@ -12,15 +12,20 @@ var filmList = [
     tanggalRilis: '17 November 2023',
     bahasa: 'Inggris',
     negara: 'Amerika',
-    imageAsset: 'images/hunger_games.jpg',
-    imageUrls: [
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amctheatres.com%2Fmovies%2Fthe-hunger-games-the-ballad-of-songbirds-snakes-69677&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABAn',
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.imdb.com%2Ftitle%2Ftt10545296%2F&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABAv',
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fsoundcloud.com%2Fempal-731231460%2Fthe-hunger-games-the-ballad-of-songbirds-snakes-2023-fullmovie-mp4720p-7784439&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABA3',
-    ],
+    imageAsset: 'images/hunger_games.jpeg',
+    castImageUrls: {
+      'Rachel Zegler' : 'https://assets.vogue.com/photos/5fb84fa4bdddef8a81d06164/4:3/w_2560%2Cc_limit/VO1220_WestSideStory_01.jpg',
+      'Tom Blyth' : 'https://assets.popbuzz.com/2023/46/who-is-tom-blyth-1700126553-view-0.jpg',
+      'Hunter Schafer' : 'https://media1.popsugar-assets.com/files/thumbor/IrsckgrUeZMZ3vZMIg1j2h3te6I/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2019/08/13/834/n/44701584/7f0c4a5121753713_GettyImages-1148081626/i/Hunter-Schafer.jpg',
+    },
+    // imageUrls: [
+    //   'https://asset.kompas.com/crops/KtewW8COFQNjTivnv5VYVo3zaXk=/0x0:1197x798/750x500/data/photo/2023/04/28/644b5b6e716fb.png',
+    //   'https://cdn.prod.mktg.evvnt.com/uploads/event_image/2018878/event_image/hero_hero_The-Ballad-Of-Songbirds-And-Snakes.webp',
+    //   'https://www.google.com/url?sa=i&url=https%3A%2F%2Fsoundcloud.com%2Fempal-731231460%2Fthe-hunger-games-the-ballad-of-songbirds-snakes-2023-fullmovie-mp4720p-7784439&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABA3',
+    // ],
     isFavorite: false,
   ),
-        Film(
+    Film(
     judul: 'Forrest Gump',
     rating: 8.8,
     favorite: 2200000,
@@ -32,11 +37,11 @@ var filmList = [
     bahasa: 'Inggris',
     negara: 'Amerika Serikat',
     imageAsset: 'images/forrest_gump.jpg',
-    imageUrls: [
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amctheatres.com%2Fmovies%2Fthe-hunger-games-the-ballad-of-songbirds-snakes-69677&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABAn',
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.imdb.com%2Ftitle%2Ftt10545296%2F&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABAv',
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fsoundcloud.com%2Fempal-731231460%2Fthe-hunger-games-the-ballad-of-songbirds-snakes-2023-fullmovie-mp4720p-7784439&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABA3',
-    ],
+    castImageUrls: {
+      'Rachel Zegler' : 'https://assets.vogue.com/photos/5fb84fa4bdddef8a81d06164/4:3/w_2560%2Cc_limit/VO1220_WestSideStory_01.jpg',
+      'Tom Blyth' : 'https://assets.popbuzz.com/2023/46/who-is-tom-blyth-1700126553-view-0.jpg',
+      'Hunter Schafer' : 'https://media1.popsugar-assets.com/files/thumbor/IrsckgrUeZMZ3vZMIg1j2h3te6I/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2019/08/13/834/n/44701584/7f0c4a5121753713_GettyImages-1148081626/i/Hunter-Schafer.jpg',
+    },
     isFavorite: false,
   ),
     Film(
@@ -51,11 +56,11 @@ var filmList = [
     bahasa: 'Inggris',
     negara: 'Amerika',
     imageAsset: 'images/rush_hour.jpeg',
-    imageUrls: [
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amctheatres.com%2Fmovies%2Fthe-hunger-games-the-ballad-of-songbirds-snakes-69677&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABAn',
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.imdb.com%2Ftitle%2Ftt10545296%2F&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABAv',
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fsoundcloud.com%2Fempal-731231460%2Fthe-hunger-games-the-ballad-of-songbirds-snakes-2023-fullmovie-mp4720p-7784439&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABA3',
-    ],
+    castImageUrls: {
+      'Rachel Zegler' : 'https://assets.vogue.com/photos/5fb84fa4bdddef8a81d06164/4:3/w_2560%2Cc_limit/VO1220_WestSideStory_01.jpg',
+      'Tom Blyth' : 'https://assets.popbuzz.com/2023/46/who-is-tom-blyth-1700126553-view-0.jpg',
+      'Hunter Schafer' : 'https://media1.popsugar-assets.com/files/thumbor/IrsckgrUeZMZ3vZMIg1j2h3te6I/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2019/08/13/834/n/44701584/7f0c4a5121753713_GettyImages-1148081626/i/Hunter-Schafer.jpg',
+    },
     isFavorite: false,
   ),
   Film(
@@ -70,11 +75,11 @@ var filmList = [
     bahasa: 'Inggris',
     negara: 'Amerika',
     imageAsset: 'images/spiderman.jpeg',
-    imageUrls: [
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amctheatres.com%2Fmovies%2Fthe-hunger-games-the-ballad-of-songbirds-snakes-69677&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABAn',
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.imdb.com%2Ftitle%2Ftt10545296%2F&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABAv',
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fsoundcloud.com%2Fempal-731231460%2Fthe-hunger-games-the-ballad-of-songbirds-snakes-2023-fullmovie-mp4720p-7784439&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABA3',
-    ],
+    castImageUrls: {
+      'Rachel Zegler' : 'https://assets.vogue.com/photos/5fb84fa4bdddef8a81d06164/4:3/w_2560%2Cc_limit/VO1220_WestSideStory_01.jpg',
+      'Tom Blyth' : 'https://assets.popbuzz.com/2023/46/who-is-tom-blyth-1700126553-view-0.jpg',
+      'Hunter Schafer' : 'https://media1.popsugar-assets.com/files/thumbor/IrsckgrUeZMZ3vZMIg1j2h3te6I/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2019/08/13/834/n/44701584/7f0c4a5121753713_GettyImages-1148081626/i/Hunter-Schafer.jpg',
+    },
     isFavorite: false,
   ),
   Film(
@@ -89,11 +94,11 @@ var filmList = [
     bahasa: 'Inggris',
     negara: 'Amerika',
     imageAsset: 'images/carl_date.jpeg',
-    imageUrls: [
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amctheatres.com%2Fmovies%2Fthe-hunger-games-the-ballad-of-songbirds-snakes-69677&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABAn',
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.imdb.com%2Ftitle%2Ftt10545296%2F&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABAv',
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fsoundcloud.com%2Fempal-731231460%2Fthe-hunger-games-the-ballad-of-songbirds-snakes-2023-fullmovie-mp4720p-7784439&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABA3',
-    ],
+    castImageUrls: {
+      'Rachel Zegler' : 'https://assets.vogue.com/photos/5fb84fa4bdddef8a81d06164/4:3/w_2560%2Cc_limit/VO1220_WestSideStory_01.jpg',
+      'Tom Blyth' : 'https://assets.popbuzz.com/2023/46/who-is-tom-blyth-1700126553-view-0.jpg',
+      'Hunter Schafer' : 'https://media1.popsugar-assets.com/files/thumbor/IrsckgrUeZMZ3vZMIg1j2h3te6I/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2019/08/13/834/n/44701584/7f0c4a5121753713_GettyImages-1148081626/i/Hunter-Schafer.jpg',
+    },
     isFavorite: false,
   ),
   Film(
@@ -108,11 +113,11 @@ var filmList = [
     bahasa: 'Inggris',
     negara: 'Amerika',
     imageAsset: 'images/fast_x.jpeg',
-    imageUrls: [
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amctheatres.com%2Fmovies%2Fthe-hunger-games-the-ballad-of-songbirds-snakes-69677&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABAn',
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.imdb.com%2Ftitle%2Ftt10545296%2F&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABAv',
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fsoundcloud.com%2Fempal-731231460%2Fthe-hunger-games-the-ballad-of-songbirds-snakes-2023-fullmovie-mp4720p-7784439&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABA3',
-    ],
+    castImageUrls: {
+      'Rachel Zegler' : 'https://assets.vogue.com/photos/5fb84fa4bdddef8a81d06164/4:3/w_2560%2Cc_limit/VO1220_WestSideStory_01.jpg',
+      'Tom Blyth' : 'https://assets.popbuzz.com/2023/46/who-is-tom-blyth-1700126553-view-0.jpg',
+      'Hunter Schafer' : 'https://media1.popsugar-assets.com/files/thumbor/IrsckgrUeZMZ3vZMIg1j2h3te6I/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2019/08/13/834/n/44701584/7f0c4a5121753713_GettyImages-1148081626/i/Hunter-Schafer.jpg',
+    },
     isFavorite: false,
   ),
   Film(
@@ -127,11 +132,11 @@ var filmList = [
     bahasa: 'Inggris',
     negara: 'Amerika',
     imageAsset: 'images/the_big_4.jpeg',
-    imageUrls: [
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amctheatres.com%2Fmovies%2Fthe-hunger-games-the-ballad-of-songbirds-snakes-69677&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABAn',
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.imdb.com%2Ftitle%2Ftt10545296%2F&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABAv',
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fsoundcloud.com%2Fempal-731231460%2Fthe-hunger-games-the-ballad-of-songbirds-snakes-2023-fullmovie-mp4720p-7784439&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABA3',
-    ],
+    castImageUrls: {
+      'Rachel Zegler' : 'https://assets.vogue.com/photos/5fb84fa4bdddef8a81d06164/4:3/w_2560%2Cc_limit/VO1220_WestSideStory_01.jpg',
+      'Tom Blyth' : 'https://assets.popbuzz.com/2023/46/who-is-tom-blyth-1700126553-view-0.jpg',
+      'Hunter Schafer' : 'https://media1.popsugar-assets.com/files/thumbor/IrsckgrUeZMZ3vZMIg1j2h3te6I/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2019/08/13/834/n/44701584/7f0c4a5121753713_GettyImages-1148081626/i/Hunter-Schafer.jpg',
+    },
     isFavorite: false,
   ),
   Film(
@@ -146,11 +151,11 @@ var filmList = [
     bahasa: 'Inggris',
     negara: 'Amerika',
     imageAsset: 'images/doctor_strange.jpeg',
-    imageUrls: [
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amctheatres.com%2Fmovies%2Fthe-hunger-games-the-ballad-of-songbirds-snakes-69677&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABAn',
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.imdb.com%2Ftitle%2Ftt10545296%2F&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABAv',
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fsoundcloud.com%2Fempal-731231460%2Fthe-hunger-games-the-ballad-of-songbirds-snakes-2023-fullmovie-mp4720p-7784439&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABA3',
-    ],
+    castImageUrls: {
+      'Rachel Zegler' : 'https://assets.vogue.com/photos/5fb84fa4bdddef8a81d06164/4:3/w_2560%2Cc_limit/VO1220_WestSideStory_01.jpg',
+      'Tom Blyth' : 'https://assets.popbuzz.com/2023/46/who-is-tom-blyth-1700126553-view-0.jpg',
+      'Hunter Schafer' : 'https://media1.popsugar-assets.com/files/thumbor/IrsckgrUeZMZ3vZMIg1j2h3te6I/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2019/08/13/834/n/44701584/7f0c4a5121753713_GettyImages-1148081626/i/Hunter-Schafer.jpg',
+    },
     isFavorite: false,
   ),
   Film(
@@ -165,11 +170,11 @@ var filmList = [
     bahasa: 'Inggris',
     negara: 'Amerika',
     imageAsset: 'images/avatar.jpeg',
-    imageUrls: [
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amctheatres.com%2Fmovies%2Fthe-hunger-games-the-ballad-of-songbirds-snakes-69677&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABAn',
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.imdb.com%2Ftitle%2Ftt10545296%2F&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABAv',
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fsoundcloud.com%2Fempal-731231460%2Fthe-hunger-games-the-ballad-of-songbirds-snakes-2023-fullmovie-mp4720p-7784439&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABA3',
-    ],
+    castImageUrls: {
+      'Rachel Zegler' : 'https://assets.vogue.com/photos/5fb84fa4bdddef8a81d06164/4:3/w_2560%2Cc_limit/VO1220_WestSideStory_01.jpg',
+      'Tom Blyth' : 'https://assets.popbuzz.com/2023/46/who-is-tom-blyth-1700126553-view-0.jpg',
+      'Hunter Schafer' : 'https://media1.popsugar-assets.com/files/thumbor/IrsckgrUeZMZ3vZMIg1j2h3te6I/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2019/08/13/834/n/44701584/7f0c4a5121753713_GettyImages-1148081626/i/Hunter-Schafer.jpg',
+    },
     isFavorite: false,
   ),
   Film(
@@ -184,11 +189,11 @@ var filmList = [
     bahasa: 'Indonesia',
     negara: 'Indonesia',
     imageAsset: 'images/kkn.jpeg',
-    imageUrls: [
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amctheatres.com%2Fmovies%2Fthe-hunger-games-the-ballad-of-songbirds-snakes-69677&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABAn',
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.imdb.com%2Ftitle%2Ftt10545296%2F&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABAv',
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fsoundcloud.com%2Fempal-731231460%2Fthe-hunger-games-the-ballad-of-songbirds-snakes-2023-fullmovie-mp4720p-7784439&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABA3',
-    ],
+    castImageUrls: {
+      'Rachel Zegler' : 'https://assets.vogue.com/photos/5fb84fa4bdddef8a81d06164/4:3/w_2560%2Cc_limit/VO1220_WestSideStory_01.jpg',
+      'Tom Blyth' : 'https://assets.popbuzz.com/2023/46/who-is-tom-blyth-1700126553-view-0.jpg',
+      'Hunter Schafer' : 'https://media1.popsugar-assets.com/files/thumbor/IrsckgrUeZMZ3vZMIg1j2h3te6I/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2019/08/13/834/n/44701584/7f0c4a5121753713_GettyImages-1148081626/i/Hunter-Schafer.jpg',
+    },
     isFavorite: false,
   ),
   Film(
@@ -203,11 +208,11 @@ var filmList = [
     bahasa: 'Indonesia',
     negara: 'Indonesia',
     imageAsset: 'images/waktu_maghrib.jpeg',
-    imageUrls: [
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amctheatres.com%2Fmovies%2Fthe-hunger-games-the-ballad-of-songbirds-snakes-69677&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABAn',
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.imdb.com%2Ftitle%2Ftt10545296%2F&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABAv',
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fsoundcloud.com%2Fempal-731231460%2Fthe-hunger-games-the-ballad-of-songbirds-snakes-2023-fullmovie-mp4720p-7784439&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABA3',
-    ],
+    castImageUrls: {
+      'Rachel Zegler' : 'https://assets.vogue.com/photos/5fb84fa4bdddef8a81d06164/4:3/w_2560%2Cc_limit/VO1220_WestSideStory_01.jpg',
+      'Tom Blyth' : 'https://assets.popbuzz.com/2023/46/who-is-tom-blyth-1700126553-view-0.jpg',
+      'Hunter Schafer' : 'https://media1.popsugar-assets.com/files/thumbor/IrsckgrUeZMZ3vZMIg1j2h3te6I/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2019/08/13/834/n/44701584/7f0c4a5121753713_GettyImages-1148081626/i/Hunter-Schafer.jpg',
+    },
     isFavorite: false,
   ),
     Film(
@@ -222,11 +227,11 @@ var filmList = [
     bahasa: 'Inggris',
     negara: 'Amerika',
     imageAsset: 'images/thor.jpeg',
-    imageUrls: [
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amctheatres.com%2Fmovies%2Fthe-hunger-games-the-ballad-of-songbirds-snakes-69677&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABAn',
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.imdb.com%2Ftitle%2Ftt10545296%2F&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABAv',
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fsoundcloud.com%2Fempal-731231460%2Fthe-hunger-games-the-ballad-of-songbirds-snakes-2023-fullmovie-mp4720p-7784439&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABA3',
-    ],
+    castImageUrls: {
+      'Rachel Zegler' : 'https://assets.vogue.com/photos/5fb84fa4bdddef8a81d06164/4:3/w_2560%2Cc_limit/VO1220_WestSideStory_01.jpg',
+      'Tom Blyth' : 'https://assets.popbuzz.com/2023/46/who-is-tom-blyth-1700126553-view-0.jpg',
+      'Hunter Schafer' : 'https://media1.popsugar-assets.com/files/thumbor/IrsckgrUeZMZ3vZMIg1j2h3te6I/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2019/08/13/834/n/44701584/7f0c4a5121753713_GettyImages-1148081626/i/Hunter-Schafer.jpg',
+    },
     isFavorite: false,
   ),
       Film(
@@ -241,11 +246,11 @@ var filmList = [
     bahasa: 'Inggris', 
     negara: 'Amerika',
     imageAsset: 'images/titanic.jpeg',
-    imageUrls: [
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amctheatres.com%2Fmovies%2Fthe-hunger-games-the-ballad-of-songbirds-snakes-69677&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABAn',
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.imdb.com%2Ftitle%2Ftt10545296%2F&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABAv',
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fsoundcloud.com%2Fempal-731231460%2Fthe-hunger-games-the-ballad-of-songbirds-snakes-2023-fullmovie-mp4720p-7784439&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABA3',
-    ],
+    castImageUrls: {
+      'Rachel Zegler' : 'https://assets.vogue.com/photos/5fb84fa4bdddef8a81d06164/4:3/w_2560%2Cc_limit/VO1220_WestSideStory_01.jpg',
+      'Tom Blyth' : 'https://assets.popbuzz.com/2023/46/who-is-tom-blyth-1700126553-view-0.jpg',
+      'Hunter Schafer' : 'https://media1.popsugar-assets.com/files/thumbor/IrsckgrUeZMZ3vZMIg1j2h3te6I/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2019/08/13/834/n/44701584/7f0c4a5121753713_GettyImages-1148081626/i/Hunter-Schafer.jpg',
+    },
     isFavorite: false,
   ),
       Film(
@@ -260,11 +265,11 @@ var filmList = [
     bahasa: 'Inggris',
     negara: 'Amerika',
     imageAsset: 'images/doraemon.jpg',
-    imageUrls: [
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amctheatres.com%2Fmovies%2Fthe-hunger-games-the-ballad-of-songbirds-snakes-69677&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABAn',
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.imdb.com%2Ftitle%2Ftt10545296%2F&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABAv',
-      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fsoundcloud.com%2Fempal-731231460%2Fthe-hunger-games-the-ballad-of-songbirds-snakes-2023-fullmovie-mp4720p-7784439&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABA3',
-    ],
+    castImageUrls: {
+      'Rachel Zegler' : 'https://assets.vogue.com/photos/5fb84fa4bdddef8a81d06164/4:3/w_2560%2Cc_limit/VO1220_WestSideStory_01.jpg',
+      'Tom Blyth' : 'https://assets.popbuzz.com/2023/46/who-is-tom-blyth-1700126553-view-0.jpg',
+      'Hunter Schafer' : 'https://media1.popsugar-assets.com/files/thumbor/IrsckgrUeZMZ3vZMIg1j2h3te6I/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2019/08/13/834/n/44701584/7f0c4a5121753713_GettyImages-1148081626/i/Hunter-Schafer.jpg',
+    },
     isFavorite: false,
   ),
 ];

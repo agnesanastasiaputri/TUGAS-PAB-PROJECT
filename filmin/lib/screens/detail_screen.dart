@@ -12,53 +12,54 @@ class DetailScreen extends StatefulWidget {
 }
 
 class _DetailScreenState extends State<DetailScreen> {
-    bool isFavorite = false;
-    bool isSignedIn = false; 
+  bool isFavorite = false;
+  bool isSignedIn = false;
 
-    @override
-    void initState(){
-      super.initState();
-      _checkSignInStatus(); 
-      _loadFavoriteStatus(); 
-    }
+  @override
+  void initState() {
+    super.initState();
+    _checkSignInStatus();
+    _loadFavoriteStatus();
+  }
 
-    //Memeriksa status sign in
-    void _checkSignInStatus() async{
-      SharedPreferences prefs = await SharedPreferences.getInstance();
-      bool signedIn = prefs.getBool('isSignedIn')?? false;
-      setState(() {
-        isSignedIn = signedIn;
+  //Memeriksa status sign in
+  void _checkSignInStatus() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool signedIn = prefs.getBool('isSignedIn') ?? false;
+    setState(() {
+      isSignedIn = signedIn;
+    });
+  }
+
+  //Memeriksa status favorit
+  void _loadFavoriteStatus() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool favorite = prefs.getBool('favorite_${widget.film.judul}') ?? false;
+    setState(() {
+      isFavorite = favorite;
+    });
+  }
+
+  Future<void> _toggleFavorite() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    //Memeriksa apakah pengguna sudah sign in
+    if (isSignedIn) {
+      //Jika belum sign in, arahkan ke SignInScreen
+      WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+        Navigator.pushReplacementNamed(context, '/signin');
       });
+      return;
     }
 
-    //Memeriksa status favorit
-    void _loadFavoriteStatus() async{
-      SharedPreferences prefs = await SharedPreferences.getInstance();
-      bool favorite = prefs.getBool('favorite_${widget.film.judul}') ?? false;
-      setState(() {
-        isFavorite = favorite;
-      });
-    }
-    Future<void> _toggleFavorite() async{
-      SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool favoriteStatus = !isFavorite;
+    prefs.setBool('favorite_${widget.film.judul}', favoriteStatus);
 
-      //Memeriksa apakah pengguna sudah sign in
-      if(isSignedIn){
-        //Jika belum sign in, arahkan ke SignInScreen
-        WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-          Navigator.pushReplacementNamed(context, '/signin');
-         });
-        return;
-      }
+    setState(() {
+      isFavorite = favoriteStatus;
+    });
+  }
 
-      bool favoriteStatus = !isFavorite;
-      prefs.setBool('favorite_${widget.film.judul}', favoriteStatus);
-
-      setState(() {
-        isFavorite = favoriteStatus;
-      });
-    }
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,11 +86,14 @@ class _DetailScreenState extends State<DetailScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(20),
-                    child: Image.asset(
-                      widget.film.imageAsset,
-                      width: double.infinity,
-                      height: 300,
-                      fit: BoxFit.cover,
+                    child: AspectRatio(
+                      aspectRatio: 2 / 1,
+                      child: Image.asset(
+                        widget.film.imageAsset,
+                        width: double.infinity,
+                        height: double.infinity,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ),
@@ -117,10 +121,9 @@ class _DetailScreenState extends State<DetailScreen> {
                       Text(
                         'Details',
                         style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white
-                        ),
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
                       ),
                     ],
                   ),
@@ -133,10 +136,9 @@ class _DetailScreenState extends State<DetailScreen> {
                       Text(
                         'Judul',
                         style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white
-                        ),
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
                       ),
                     ],
                   ),
@@ -144,10 +146,8 @@ class _DetailScreenState extends State<DetailScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        '${widget.film.judul}', 
-                        style: TextStyle(
-                          color: Colors.white
-                        ),
+                        '${widget.film.judul}',
+                        style: TextStyle(color: Colors.white),
                       ),
                     ],
                   ),
@@ -160,10 +160,9 @@ class _DetailScreenState extends State<DetailScreen> {
                       Text(
                         'Director',
                         style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white
-                        ),
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
                       ),
                     ],
                   ),
@@ -171,10 +170,8 @@ class _DetailScreenState extends State<DetailScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        '${widget.film.director}', 
-                        style: TextStyle(
-                          color: Colors.white
-                        ),
+                        '${widget.film.director}',
+                        style: TextStyle(color: Colors.white),
                       ),
                     ],
                   ),
@@ -187,10 +184,9 @@ class _DetailScreenState extends State<DetailScreen> {
                       Text(
                         'Writer',
                         style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white
-                        ),
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
                       ),
                     ],
                   ),
@@ -199,9 +195,7 @@ class _DetailScreenState extends State<DetailScreen> {
                     children: [
                       Text(
                         '${widget.film.penulis}',
-                        style: TextStyle(
-                          color: Colors.white
-                        ),
+                        style: TextStyle(color: Colors.white),
                       ),
                     ],
                   ),
@@ -214,10 +208,9 @@ class _DetailScreenState extends State<DetailScreen> {
                       Text(
                         'Release Date',
                         style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white
-                        ),
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
                       ),
                     ],
                   ),
@@ -226,9 +219,7 @@ class _DetailScreenState extends State<DetailScreen> {
                     children: [
                       Text(
                         '${widget.film.tanggalRilis}',
-                        style: TextStyle(
-                          color: Colors.white
-                        ),
+                        style: TextStyle(color: Colors.white),
                       ),
                     ],
                   ),
@@ -241,10 +232,9 @@ class _DetailScreenState extends State<DetailScreen> {
                       Text(
                         'Language',
                         style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white
-                        ),
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
                       ),
                     ],
                   ),
@@ -253,9 +243,7 @@ class _DetailScreenState extends State<DetailScreen> {
                     children: [
                       Text(
                         '${widget.film.bahasa}',
-                        style: TextStyle(
-                          color: Colors.white
-                        ),
+                        style: TextStyle(color: Colors.white),
                       ),
                     ],
                   ),
@@ -268,10 +256,9 @@ class _DetailScreenState extends State<DetailScreen> {
                       Text(
                         'Country',
                         style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white
-                        ),
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
                       ),
                     ],
                   ),
@@ -280,9 +267,7 @@ class _DetailScreenState extends State<DetailScreen> {
                     children: [
                       Text(
                         '${widget.film.negara}',
-                        style: TextStyle(
-                          color: Colors.white
-                        ),
+                        style: TextStyle(color: Colors.white),
                       ),
                     ],
                   ),
@@ -296,10 +281,9 @@ class _DetailScreenState extends State<DetailScreen> {
                       Text(
                         'Sinopsis',
                         style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white
-                        ),
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
                       ),
                     ],
                   ),
@@ -310,83 +294,80 @@ class _DetailScreenState extends State<DetailScreen> {
                     child: Text(
                       widget.film.sinopsis,
                       textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white
-                      ),
+                      style: TextStyle(color: Colors.white),
                     ),
                   ),
                 ],
               ),
             ),
-            // DetailGallery
+
             Padding(
               padding: const EdgeInsets.all(15),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Center(
-                      child: Text(
-                        'Cast',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
+                    child: Text(
+                      'Cast',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white
-                        ),
-                      ),
+                          color: Colors.white),
+                    ),
                   ),
-                  
                   const SizedBox(
                     height: 10,
                   ),
                   SizedBox(
-                    height: 100,
+                    height: 160,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
-                      itemCount: widget.film.imageUrls.length,
+                      itemCount: widget.film.castImageUrls.length,
                       itemBuilder: (context, index) {
+                        final actorName =
+                            widget.film.castImageUrls.keys.toList()[index];
+                        final actorImageUrl =
+                            widget.film.castImageUrls.values.toList()[index];
+
                         return Padding(
                           padding: const EdgeInsets.only(right: 8),
-                          child: GestureDetector(
-                            onTap: () {},
-                            child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(50),
-                                border: Border.all(
-                                  color: Colors.white,
-                                  width: 2,
+                          child: Column(
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(50),
+                                  border: Border.all(
+                                    color: Colors.white,
+                                    width: 2,
+                                  ),
                                 ),
-                              ),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(10),
-                                child: CachedNetworkImage(
-                                  imageUrl: widget.film.imageUrls[index],
-                                  width: 120,
-                                  height: 120,
-                                  fit: BoxFit.cover,
-                                  placeholder: (context, url) => Container(
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(10),
+                                  child: CachedNetworkImage(
+                                    imageUrl: actorImageUrl,
                                     width: 120,
                                     height: 120,
-                                    color: Colors.white,
+                                    fit: BoxFit.cover,
+                                    placeholder: (context, url) => Container(
+                                      width: 150,
+                                      height: 150,
+                                      color: Colors.white,
+                                    ),
+                                    errorWidget: (context, url, error) =>
+                                        const Icon(Icons.error),
                                   ),
-                                  errorWidget: (context, url, error) =>
-                                      const Icon(Icons.error),
                                 ),
                               ),
-                            ),
+                              const SizedBox(height: 8),
+                              Text(
+                                actorName,
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ],
                           ),
                         );
                       },
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 4,
-                  ),
-                  const Text(
-                    'Tap untuk memperbesar',
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.white,
                     ),
                   ),
                 ],
@@ -395,35 +376,126 @@ class _DetailScreenState extends State<DetailScreen> {
           ],
         ),
       ),
-      /*body: Column(
-        children: [
-          Stack(
-            children: [
-              //Image Utama
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: Image.asset(candi.imageAsset,
-                      width: double.infinity, height: 300, fit: BoxFit.cover),
-                ),
-              ),
-              //Tombol Back Custom
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
-                child: Container(
-                  decoration: BoxDecoration(
-                      color: Colors.deepPurple[100]?.withOpacity(0.8),
-                      shape: BoxShape.circle),
-                  child: IconButton(
-                      onPressed: () {}, icon: const Icon(Icons.arrow_back)),
-                ),
-              )
-            ],
-          )
-        ],
-      ),*/
     );
   }
 }
+
+            // DetailGallery
+//             Padding(
+//               padding: const EdgeInsets.all(15),
+//               child: Column(
+//                 crossAxisAlignment: CrossAxisAlignment.start,
+//                 children: [
+//                   Center(
+//                     child: Text(
+//                       'Cast',
+//                       textAlign: TextAlign.center,
+//                       style: TextStyle(
+//                           fontSize: 20,
+//                           fontWeight: FontWeight.bold,
+//                           color: Colors.white),
+//                     ),
+//                   ),
+//                   const SizedBox(
+//                     height: 10,
+//                   ),
+//                   // SizedBox(
+//                   //   height: 100,
+//                   //   child: ListView.builder(
+//                   //     scrollDirection: Axis.horizontal,
+//                   //     itemCount: widget.film.imageUrls.length,
+//                   //     itemBuilder: (context, index) {
+//                   //       return Padding(
+//                   //         padding: const EdgeInsets.only(right: 8),
+//                   //         child: GestureDetector(
+//                   //           onTap: () {},
+//                   //           child: Container(
+//                   //             decoration: BoxDecoration(
+//                   //               borderRadius: BorderRadius.circular(50),
+//                   //               border: Border.all(
+//                   //                 color: Colors.white,
+//                   //                 width: 2,
+//                   //               ),
+//                   //             ),
+//                   //             child: ClipRRect(
+//                   //               borderRadius: BorderRadius.circular(10),
+//                   //               child: CachedNetworkImage(
+//                   //                 imageUrl: widget.film.imageUrls[index],
+//                   //                 width: 120,
+//                   //                 height: 120,
+//                   //                 fit: BoxFit.cover,
+//                   //                 placeholder: (context, url) => Container(
+//                   //                   width: 150,
+//                   //                   height: 150,
+//                   //                   color: Colors.white,
+//                   //                 ),
+//                   //                 errorWidget: (context, url, error) =>
+//                   //                     const Icon(Icons.error),
+//                   //               ),
+//                   //             ),
+//                   //           ),
+//                   //         ),
+//                   //       );
+//                   //     },
+//                   //   ),
+//                   // ),
+//                   SizedBox(
+//                     height: 160, // Adjust the height based on your preference
+//                     child: ListView.builder(
+//                       scrollDirection: Axis.horizontal,
+//                       itemCount: widget.film.castImageUrls.length,
+//                       itemBuilder: (context, index) {
+//                         final actorName =
+//                             widget.film.castImageUrls.keys.toList()[index];
+//                         final actorImageUrl =
+//                             widget.film.castImageUrls.values.toList()[index];
+
+//                         return Padding(
+//                           padding: const EdgeInsets.only(right: 8),
+//                           child: Column(
+//                             children: [
+//                               Container(
+//                                 decoration: BoxDecoration(
+//                                   borderRadius: BorderRadius.circular(50),
+//                                   border: Border.all(
+//                                     color: Colors.white,
+//                                     width: 2,
+//                                   ),
+//                                 ),
+//                                 child: ClipRRect(
+//                                   borderRadius: BorderRadius.circular(10),
+//                                   child: CachedNetworkImage(
+//                                     imageUrl: actorImageUrl,
+//                                     width: 120,
+//                                     height: 120,
+//                                     fit: BoxFit.cover,
+//                                     placeholder: (context, url) => Container(
+//                                       width: 150,
+//                                       height: 150,
+//                                       color: Colors.white,
+//                                     ),
+//                                     errorWidget: (context, url, error) =>
+//                                         const Icon(Icons.error),
+//                                   ),
+//                                 ),
+//                               ),
+//                               const SizedBox(height: 8),
+//                               Text(
+//                                 actorName,
+//                                 style: TextStyle(color: Colors.white),
+//                               ),
+//                             ],
+//                           ),
+//                         );
+//                       },
+//                     ),
+//                   )
+//                 ],
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
