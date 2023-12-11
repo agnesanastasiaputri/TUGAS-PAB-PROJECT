@@ -14,9 +14,12 @@ var filmList = [
     negara: 'Amerika',
     imageAsset: 'images/hunger_games.jpeg',
     castImageUrls: {
-      'Rachel Zegler' : 'https://assets.vogue.com/photos/5fb84fa4bdddef8a81d06164/4:3/w_2560%2Cc_limit/VO1220_WestSideStory_01.jpg',
-      'Tom Blyth' : 'https://assets.popbuzz.com/2023/46/who-is-tom-blyth-1700126553-view-0.jpg',
-      'Hunter Schafer' : 'https://media1.popsugar-assets.com/files/thumbor/IrsckgrUeZMZ3vZMIg1j2h3te6I/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2019/08/13/834/n/44701584/7f0c4a5121753713_GettyImages-1148081626/i/Hunter-Schafer.jpg',
+      'Rachel Zegler' : 'https://storage.googleapis.com/afs-prod/media/c47e1dfd159847b99521525f7409c031/3000.jpeg',
+      'Tom Blyth' : 'https://worthycelebs.com/wp-content/uploads/2022/05/tom-blyth.jpg',
+      'Josh Andres Rivera' : 'https://th.bing.com/th/id/OIP.O5Bs0C-Ehh5mQGlJMcSLUAHaHa?w=960&h=960&rs=1&pid=ImgDetMain.jpg',
+      'Peter Dinklage' : 'https://marketsharegroup.com/wp-content/uploads/2020/03/peter-dinklage.jpg ',
+      'Viola Davis' : 'https://th.bing.com/th/id/OIP.I95jt219TYd_-GQ1_a4GbAHaHa?rs=1&pid=ImgDetMain',
+      'Hunter Schafer' : 'https://th.bing.com/th/id/OIP._BAwe4BGBRLvxsMEdzp3FQHaIM?rs=1&pid=ImgDetMain',
     },
     // imageUrls: [
     //   'https://asset.kompas.com/crops/KtewW8COFQNjTivnv5VYVo3zaXk=/0x0:1197x798/750x500/data/photo/2023/04/28/644b5b6e716fb.png',
