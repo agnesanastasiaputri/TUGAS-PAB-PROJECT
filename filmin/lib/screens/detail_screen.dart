@@ -343,7 +343,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                   ),
                                 ),
                                 child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(10),
+                                  borderRadius: BorderRadius.circular(45),
                                   child: CachedNetworkImage(
                                     imageUrl: actorImageUrl,
                                     width: 120,
