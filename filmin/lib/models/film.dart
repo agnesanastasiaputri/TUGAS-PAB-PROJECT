@@ -1,5 +1,6 @@
 class Film {
   final String judul;
+  final String url;
   final String sinopsis;
   final String director;
   final String penulis;
@@ -15,6 +16,7 @@ class Film {
 
   Film({
     required this.judul,
+    required this.url,
     required this.sinopsis,
     required this.director,
     required this.penulis,

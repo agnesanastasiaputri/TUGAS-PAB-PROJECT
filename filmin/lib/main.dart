@@ -1,6 +1,8 @@
 import 'package:filmin/screens/favorite_screen.dart';
 import 'package:filmin/screens/profile_screen.dart';
 import 'package:filmin/screens/rate_screen.dart';
+import 'package:filmin/screens/search_screen.dart';
+import 'package:filmin/screens/sign_in_screen.dart';
 import 'package:filmin/widgets/film_card.dart';
 import 'package:flutter/material.dart';
 import 'package:filmin/screens/home_screen.dart';
@@ -29,12 +31,14 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: MainScreen(),
+      // home: SignInScreen(),
+      // home: SearchScreen(),
       initialRoute: '/',
       routes: {
         '/homescreen': (context) => const HomeScreen(),
         '/ratescreen': (context) => const RateScreen(),
-        '/favoritescreen' : (context) => const FavoriteScreen(),
-        '/profilescreen' : (context) => const ProfileScreen()
+        '/favoritescreen': (context) => const FavoriteScreen(),
+        '/profilescreen': (context) => const ProfileScreen()
       },
     );
   }
@@ -62,12 +66,6 @@ class _MainScreenState extends State<MainScreen> {
       drawer: NavBar(),
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 19, 17, 17),
-        // leading: IconButton(
-        //   icon: Icon(Icons.menu),
-        //   onPressed: () {
-        //     print('Menu button pressed');
-        //   },
-        // ),
         title: Text(
           'FILMIN',
           style: TextStyle(
@@ -79,7 +77,12 @@ class _MainScreenState extends State<MainScreen> {
           IconButton(
             icon: Icon(Icons.search),
             onPressed: () {
-              print('Search button pressed');
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SearchScreen(),
+                ),
+              );
             },
           ),
         ],
@@ -87,7 +90,8 @@ class _MainScreenState extends State<MainScreen> {
       body: _children[_currentIndex],
       bottomNavigationBar: Theme(
         //TODO: 4. Buat data dan child dari Theme
-        data: Theme.of(context).copyWith(canvasColor: Color.fromARGB(255, 19, 17, 17)),
+        data: Theme.of(context)
+            .copyWith(canvasColor: Color.fromARGB(255, 19, 17, 17)),
         child: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           currentIndex: _currentIndex,

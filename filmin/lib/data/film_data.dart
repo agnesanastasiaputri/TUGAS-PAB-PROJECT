@@ -3,6 +3,7 @@ import 'package:filmin/models/film.dart';
 var filmList = [
   Film(
     judul: 'The Hunger Games: The Ballad of Songbirds & Snakes',
+    url: 'https://youtu.be/NxW_X4kzeus?si=QU5d_AgEuOrwcWg_',
     rating: 5,
     favorite: 100,
     sinopsis:
@@ -36,6 +37,7 @@ var filmList = [
   ),
   Film(
     judul: 'Forrest Gump',
+    url: 'https://youtu.be/NxW_X4kzeus?si=QU5d_AgEuOrwcWg_',
     rating: 8.8,
     favorite: 2200000,
     sinopsis:
@@ -66,6 +68,7 @@ var filmList = [
   ),
   Film(
     judul: 'Rush Hour',
+    url: 'https://youtu.be/NxW_X4kzeus?si=QU5d_AgEuOrwcWg_',
     rating: 7,
     favorite: 288000,
     sinopsis:
@@ -94,6 +97,7 @@ var filmList = [
   ),
   Film(
     judul: 'Spider-Man No Way Home',
+    url: 'https://youtu.be/NxW_X4kzeus?si=QU5d_AgEuOrwcWg_',
     rating: 8.2,
     favorite: 843000,
     sinopsis:
@@ -124,6 +128,7 @@ var filmList = [
   ),
   Film(
     judul: 'Carl Date',
+    url: 'https://youtu.be/NxW_X4kzeus?si=QU5d_AgEuOrwcWg_',
     rating: 8,
     favorite: 288,
     sinopsis:
@@ -144,6 +149,7 @@ var filmList = [
   ),
   Film(
     judul: 'Fast X',
+    url: 'https://youtu.be/NxW_X4kzeus?si=QU5d_AgEuOrwcWg_',
     rating: 5.8,
     favorite: 103000,
     sinopsis:
@@ -180,6 +186,7 @@ var filmList = [
   ),
   Film(
     judul: 'The Big 4',
+    url: 'https://youtu.be/NxW_X4kzeus?si=QU5d_AgEuOrwcWg_',
     rating: 6.1,
     favorite: 3300,
     sinopsis:
@@ -202,6 +209,7 @@ var filmList = [
   ),
   Film(
     judul: 'Doctor Strange',
+    url: 'https://youtu.be/NxW_X4kzeus?si=QU5d_AgEuOrwcWg_',
     rating: 6.9,
     favorite: 459000,
     sinopsis:
@@ -228,6 +236,7 @@ var filmList = [
   ),
   Film(
     judul: 'Avatar',
+    url: 'https://youtu.be/NxW_X4kzeus?si=QU5d_AgEuOrwcWg_',
     rating: 7.9,
     favorite: 1400000,
     sinopsis:
@@ -250,6 +259,7 @@ var filmList = [
   ),
   Film(
     judul: 'KKN di Desa Penari',
+    url: 'https://youtu.be/NxW_X4kzeus?si=QU5d_AgEuOrwcWg_',
     rating: 5.9,
     favorite: 2200,
     sinopsis:
@@ -276,6 +286,7 @@ var filmList = [
   ),
   Film(
     judul: 'Waktu Maghrib',
+    url: 'https://youtu.be/NxW_X4kzeus?si=QU5d_AgEuOrwcWg_',
     rating: 6,
     favorite: 763,
     sinopsis:
@@ -298,6 +309,7 @@ var filmList = [
   ),
   Film(
     judul: 'Thor Love and Thunder',
+    url: 'https://youtu.be/NxW_X4kzeus?si=QU5d_AgEuOrwcWg_',
     rating: 6.2,
     favorite: 384000,
     sinopsis:
@@ -325,6 +337,7 @@ var filmList = [
   ),
   Film(
     judul: 'Titanic',
+    url: 'https://youtu.be/NxW_X4kzeus?si=QU5d_AgEuOrwcWg_',
     rating: 7.9,
     favorite: 1300000,
     sinopsis:
@@ -351,6 +364,7 @@ var filmList = [
   ),
   Film(
     judul: 'Doraemon Stand by me 2',
+    url: 'https://youtu.be/NxW_X4kzeus?si=QU5d_AgEuOrwcWg_',
     rating: 7.5,
     favorite: 384000,
     sinopsis:

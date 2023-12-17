@@ -19,6 +19,11 @@ class _RateScreenState extends State<RateScreen> {
     _filterFilms.sort((a, b) => b.rating.compareTo(a.rating));
     return Scaffold(
       backgroundColor: Colors.black,
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        elevation: 0,
+        centerTitle: false,
+      ),
       body: Column(
         children: [
           Expanded(

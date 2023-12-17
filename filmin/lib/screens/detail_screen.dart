@@ -2,27 +2,76 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:filmin/models/film.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class DetailScreen extends StatefulWidget {
   final Film film;
-  const DetailScreen({super.key, required this.film});
+  const DetailScreen({Key? key, required this.film}) : super(key: key);
 
   @override
   State<DetailScreen> createState() => _DetailScreenState();
 }
 
 class _DetailScreenState extends State<DetailScreen> {
+  // final videoURL = 'https://youtu.be/NxW_X4kzeus?si=QU5d_AgEuOrwcWg_';
+
+  late YoutubePlayerController _controller;
+  // bool isPlaying = false;
+
   bool isFavorite = false;
   bool isSignedIn = false;
 
   @override
   void initState() {
+    // final videoID = YoutubePlayer.convertUrlToId(videoURL);
+
+_controller = YoutubePlayerController(
+    initialVideoId: '${widget.film.url}',
+    flags: YoutubePlayerFlags(
+      autoPlay: true,
+      mute: true,
+    ),
+  );
+    // _controller = YoutubePlayerController(
+    //   initialVideoId: videoID!,
+    //   flags: const YoutubePlayerFlags(
+    //     autoPlay: true,
+    //     mute: true,
+    //   ),
+    // )..addListener(() {
+    //     if (isPlaying != _controller.value.isPlaying) {
+    //       setState(() {
+    //         isPlaying = _controller.value.isPlaying;
+    //       });
+    //     }
+    //   });
+
     super.initState();
     _checkSignInStatus();
     _loadFavoriteStatus();
   }
 
-  //Memeriksa status sign in
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+void listener(){
+  print('Status pemutar video berubah: ${_controller.value.playerState}');
+}
+
+  // void _togglePlaying() {
+  //   setState(() {
+  //     if (isPlaying) {
+  //       _controller.pause();
+  //     } else {
+  //       _controller.play();
+  //     }
+  //     isPlaying = !isPlaying;
+  //   });
+  // }
+
+  // Memeriksa status sign in
   void _checkSignInStatus() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bool signedIn = prefs.getBool('isSignedIn') ?? false;
@@ -31,7 +80,7 @@ class _DetailScreenState extends State<DetailScreen> {
     });
   }
 
-  //Memeriksa status favorit
+  // Memeriksa status favorit
   void _loadFavoriteStatus() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bool favorite = prefs.getBool('favorite_${widget.film.judul}') ?? false;
@@ -43,10 +92,10 @@ class _DetailScreenState extends State<DetailScreen> {
   Future<void> _toggleFavorite() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
-    //Memeriksa apakah pengguna sudah sign in
+    // Memeriksa apakah pengguna sudah sign in
     if (isSignedIn) {
-      //Jika belum sign in, arahkan ke SignInScreen
-      WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      // Jika belum sign in, arahkan ke SignInScreen
+      WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
         Navigator.pushReplacementNamed(context, '/signin');
       });
       return;
@@ -64,14 +113,7 @@ class _DetailScreenState extends State<DetailScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 19, 17, 17),
-        title: Text(
-          '${widget.film.judul}',
-          style: TextStyle(
-            color: Colors.white, // Warna teks title
-            fontSize: 20,
-          ),
-        ),
+        backgroundColor: const Color.fromARGB(255, 19, 17, 17),
       ),
       backgroundColor: Colors.black,
       body: SingleChildScrollView(
@@ -100,6 +142,38 @@ class _DetailScreenState extends State<DetailScreen> {
               ],
             ),
             // DetailInfo
+            // YoutubePlayer(
+            //   controller: _controller,
+            //   showVideoProgressIndicator: true,
+            //   progressIndicatorColor: Colors.red,
+            // ),
+            YoutubePlayerBuilder(
+            player: YoutubePlayer(
+              controller: _controller,
+              showVideoProgressIndicator: true,
+              progressIndicatorColor: Colors.amber,
+              progressColors: ProgressBarColors(
+                playedColor: Colors.amber,
+                handleColor: Colors.amberAccent,
+              ),
+              onReady: () {
+                _controller.addListener(listener);
+              },
+            ),
+            builder: (context, player) {
+              return player;
+            },
+          ),
+            // Center(
+            //   child: IconButton(
+            //     icon: Icon(
+            //      isPlaying ? Icons.pause : Icons.play_arrow,
+            //      color: Colors.white,
+            //      size: 48,
+            //     ),
+            //     onPressed: _togglePlaying,
+            //   ),
+            // ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Column(
@@ -343,7 +417,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                   ),
                                 ),
                                 child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(45),
+                                  borderRadius: BorderRadius.circular(48),
                                   child: CachedNetworkImage(
                                     imageUrl: actorImageUrl,
                                     width: 120,

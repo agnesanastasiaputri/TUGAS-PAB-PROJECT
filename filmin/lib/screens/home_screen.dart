@@ -12,7 +12,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<Film> _filterFilms = filmList;
+  final List<Film> _filterFilms = filmList;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     );
                   },
                   child: Card(
-                    margin: EdgeInsets.symmetric(
+                    margin: const EdgeInsets.symmetric(
                       horizontal: 16,
                       vertical: 4,
                     ),
@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          padding: EdgeInsets.all(8),
+                          padding: const EdgeInsets.all(8),
                           width: 100,
                           height: 100,
                           child: ClipRRect(
@@ -71,28 +71,28 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                                 Row(
                                   children: [
-                                    Icon(
+                                    const Icon(
                                       Icons.star,
                                       color: Colors.black,
                                       size: 15,
                                     ),
-                                    SizedBox(width: 2),
+                                    const SizedBox(width: 2),
                                     Text(
                                       film.rating.toString(),
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         fontSize: 14,
                                       ),
                                     ),
-                                    Spacer(),
-                                    Icon(
+                                    const Spacer(),
+                                    const Icon(
                                       Icons.favorite,
                                       color: Colors.black,
                                       size: 16,
                                     ),
-                                    SizedBox(width: 2),
+                                    const SizedBox(width: 2),
                                     Text(
                                       film.favorite.toString(),
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         fontSize: 14,
                                       ),
                                     )
