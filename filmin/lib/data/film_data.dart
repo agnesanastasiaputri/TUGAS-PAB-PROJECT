@@ -4,7 +4,7 @@ var filmList = [
   Film(
     judul: 'The Hunger Games: The Ballad of Songbirds & Snakes',
     url: 'QU5d_AgEuOrwcWg_',
-    rating: 5,
+    rating: 5, 
     favorite: 100,
     sinopsis:
         'Puluhan tahun sebelum Coriolanus Snow menjadi presiden Panem yang kejam, ia adalah pemuda berusia 18 tahun yang tampan dan memesona. Coriolanus menjadi harapan terakhir garis keturunan Snow yang sebelumnya dibanggakan, tetapi gagal dan jatuh miskin pascaperang di Capitol. Dengan mata pencaharian yang terancam, Coriolanus hanya memiliki kesempatan untuk mengubah nasib saat dipilih sebagai mentor Hunger Games ke-10. Kesempatan itu sempat membuat Coriolanus goyah karena harus menjadi mentor dari Lucy Gray Baird, tribut Distrik 12 yang miskin. Akan tetapi, pesona Lucy yang memikat hati para penduduk membuat Coriolanus bekerja sama dengannya. Melawan naluri baik dan jahat, Coriolanus berjuang untuk bertahan hidup.',
@@ -28,11 +28,6 @@ var filmList = [
       'Hunter Schafer':
           'https://th.bing.com/th/id/OIP._BAwe4BGBRLvxsMEdzp3FQHaIM?rs=1&pid=ImgDetMain',
     },
-    // imageUrls: [
-    //   'https://asset.kompas.com/crops/KtewW8COFQNjTivnv5VYVo3zaXk=/0x0:1197x798/750x500/data/photo/2023/04/28/644b5b6e716fb.png',
-    //   'https://cdn.prod.mktg.evvnt.com/uploads/event_image/2018878/event_image/hero_hero_The-Ballad-Of-Songbirds-And-Snakes.webp',
-    //   'https://www.google.com/url?sa=i&url=https%3A%2F%2Fsoundcloud.com%2Fempal-731231460%2Fthe-hunger-games-the-ballad-of-songbirds-snakes-2023-fullmovie-mp4720p-7784439&psig=AOvVaw017RcF8_w-pmQpDLCi-hWq&ust=1701015092134000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNih-JTF34IDFQAAAAAdAAAAABA3',
-    // ],
     isFavorite: false,
   ),
   Film(
