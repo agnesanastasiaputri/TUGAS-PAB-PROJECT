@@ -3,7 +3,7 @@ import 'package:filmin/models/film.dart';
 var filmList = [
   Film(
     judul: 'The Hunger Games: The Ballad of Songbirds & Snakes',
-    url: 'QU5d_AgEuOrwcWg_',
+    url: 'QoTixoF4v7fnr010',
     rating: 5, 
     favorite: 100,
     sinopsis:
@@ -32,7 +32,7 @@ var filmList = [
   ),
   Film(
     judul: 'Forrest Gump',
-    url: 'whBQG81oH-qAoQY5',
+    url: 'LiuzAbsPkniR3r5J',
     rating: 8.8,
     favorite: 2200000,
     sinopsis:
@@ -63,7 +63,7 @@ var filmList = [
   ),
   Film(
     judul: 'Rush Hour',
-    url: 'C42KqrZ370YloZwG',
+    url: 'xqispKdV7QI8ffLX',
     rating: 7,
     favorite: 288000,
     sinopsis:
@@ -92,7 +92,7 @@ var filmList = [
   ),
   Film(
     judul: 'Spider-Man No Way Home',
-    url: 'mjv8OfaxHL-Unmzs',
+    url: '28IskAigrKnZneeC',
     rating: 8.2,
     favorite: 843000,
     sinopsis:
@@ -123,7 +123,7 @@ var filmList = [
   ),
   Film(
     judul: 'Carl Date',
-    url: 'uDt8HiGLvL91-mJb',
+    url: 'wlKCjmOwgWxDG8Nz',
     rating: 8,
     favorite: 288,
     sinopsis:
@@ -144,7 +144,7 @@ var filmList = [
   ),
   Film(
     judul: 'Fast X',
-    url: '69JS6iyubXOZ7Gww',
+    url: 'jR8fDNpHhp9XU24u',
     rating: 5.8,
     favorite: 103000,
     sinopsis:
