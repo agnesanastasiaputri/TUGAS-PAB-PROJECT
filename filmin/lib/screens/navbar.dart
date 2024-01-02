@@ -1,7 +1,9 @@
+import 'package:filmin/main.dart';
 import 'package:filmin/screens/favorite_screen.dart';
 import 'package:filmin/screens/home_screen.dart';
 import 'package:filmin/screens/profile_screen.dart';
 import 'package:filmin/screens/rate_screen.dart';
+import 'package:filmin/screens/signin_screen.dart';
 import 'package:flutter/material.dart';
 
 class NavBar extends StatelessWidget {
@@ -36,7 +38,7 @@ class NavBar extends StatelessWidget {
               textColor: Colors.white,
               onTap: () => {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => HomeScreen()))
+                        MaterialPageRoute(builder: (context) => MainScreen()))
                   }),
           ListTile(
               iconColor: Colors.white,
@@ -75,7 +77,12 @@ class NavBar extends StatelessWidget {
               leading: Icon(Icons.exit_to_app),
               title: Text('Sign Out'),
               textColor: Colors.white,
-              onTap: () => null),
+              onTap: () => {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SignIn()),
+                )
+              }),
         ],
       ),
     );

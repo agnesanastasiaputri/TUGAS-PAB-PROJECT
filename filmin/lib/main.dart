@@ -3,6 +3,7 @@ import 'package:filmin/screens/profile_screen.dart';
 import 'package:filmin/screens/rate_screen.dart';
 import 'package:filmin/screens/search_screen.dart';
 import 'package:filmin/screens/sign_in_screen.dart';
+import 'package:filmin/screens/signin_screen.dart';
 import 'package:filmin/widgets/film_card.dart';
 import 'package:flutter/material.dart';
 import 'package:filmin/screens/home_screen.dart';
@@ -30,7 +31,8 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: MainScreen(),
+      // home: MainScreen(),
+      home: SignIn(),
       // home: SignInScreen(),
       // home: SearchScreen(),
       initialRoute: '/',

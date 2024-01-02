@@ -1,3 +1,4 @@
+import 'package:filmin/screens/signin_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:filmin/widgets/Profile_info_item.dart';
 
@@ -173,7 +174,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
             SizedBox(height: 100), // Memberikan ruang kosong di atas tombol Logout
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SignIn()),
+                );
+              },
               style: ElevatedButton.styleFrom(
                 primary: Colors.white,
                 onPrimary: Colors.black,
