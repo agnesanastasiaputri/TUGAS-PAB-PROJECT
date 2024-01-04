@@ -126,20 +126,45 @@ class _SignInState extends State<SignIn> {
     String username = _usernameController.text;
     String password = _passwordController.text;
 
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    String storedUsername = prefs.getString('username') ?? '';
-    String storedPassword = prefs.getString('password') ?? '';
-    int loginTime = prefs.getInt('loginTime') ?? 0;
+    if (username.isNotEmpty && password.isNotEmpty) {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      String storedUsername = prefs.getString('username') ?? '';
+      String storedPassword = prefs.getString('password') ?? '';
+      int loginTime = prefs.getInt('loginTime') ?? 0;
 
-    if (username == storedUsername && password == storedPassword) {
-      // Simpan waktu login
-      prefs.setBool('isLoggedIn', true);
-      prefs.setInt('loginTime', DateTime.now().millisecondsSinceEpoch);
+      if (username == storedUsername && password == storedPassword) {
+        prefs.setBool('isLoggedIn', true);
+        prefs.setInt('loginTime', DateTime.now().millisecondsSinceEpoch);
 
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => MainScreen()),
-      );
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => MainScreen()),
+        );
+      } else {
+        showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              title: Text('    Login Failed'),
+              content: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Text('Wrong Pass or invalid User.'),
+                  ],
+                ),
+              ),
+              actions: <Widget>[
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text('OK'),
+                ),
+              ],
+            );
+          },
+        );
+      }
     } else {
       showDialog(
         context: context,
@@ -149,12 +174,7 @@ class _SignInState extends State<SignIn> {
             content: SingleChildScrollView(
               child: Column(
                 children: [
-                  Text('Wrong Pass or invalid User.'),
-                  // Image.network(
-                  //   'https://media.tenor.com/b5_GZ8tV6oEAAAAi/pikachu-pokemon.gif',
-                  //   height: 200,
-                  //   width: 200,
-                  // ),
+                  Text('Username and password cannot be empty.'),
                 ],
               ),
             ),
