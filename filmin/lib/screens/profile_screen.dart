@@ -1,6 +1,7 @@
 import 'package:filmin/screens/signin_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:filmin/widgets/Profile_info_item.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key});
@@ -10,8 +11,12 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  String username = 'Username';
-  String fullname = 'Fullname';
+  
+  Future<String> getUsernameFromSharedPreferences() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? username = prefs.getString('username');
+    return username ?? 'No Username';
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -132,7 +137,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        elevation: 0,
         centerTitle: false,
 
         title: null,
@@ -154,22 +158,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             SizedBox(height: 22),
             // Menempatkan username di atas
-            Text(
-              username,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18,
-              ),
-            ),
-            SizedBox(height: 5), // Memberikan jarak antara username dan fullname
-            // Menempatkan fullname di bawah
-            Text(
-              fullname,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18,
-              ),
-            ),
+            FutureBuilder<String>(
+            future: getUsernameFromSharedPreferences(),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return Text(
+                  snapshot.data!,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                  ),
+                );
+              } else {
+                return CircularProgressIndicator();
+              }
+            },
+          ),
             SizedBox(height: 24),
 
             SizedBox(height: 100), // Memberikan ruang kosong di atas tombol Logout

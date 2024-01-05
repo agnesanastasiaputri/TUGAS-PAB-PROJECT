@@ -39,10 +39,10 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Login Page'),
-        backgroundColor: Colors.black,
-      ),
+      // appBar: AppBar(
+      //   title: Text('Login Page'),
+      //   backgroundColor: Colors.black,
+      // ),
       backgroundColor: Colors.black,
       body: SingleChildScrollView(
         child: Padding(
@@ -52,8 +52,8 @@ class _SignInState extends State<SignIn> {
             children: <Widget>[
               Image.asset(
                 'images/logo.jpg',
-                height: 500,
-                width: 500,
+                height: 350,
+                width: 350,
               ),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
@@ -214,7 +214,9 @@ class _SignupPageState extends State<SignupPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Signup Page'),
+        backgroundColor: Colors.black ,
       ),
+      backgroundColor: Colors.black,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(16.0),
@@ -223,8 +225,8 @@ class _SignupPageState extends State<SignupPage> {
             children: <Widget>[
               Image.asset(
                 'images/logo.jpg',
-                height: 200,
-                width: 200,
+                height: 350,
+                width: 350,
               ),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),

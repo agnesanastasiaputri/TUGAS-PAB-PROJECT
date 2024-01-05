@@ -29,7 +29,7 @@ _controller = YoutubePlayerController(
     initialVideoId: '${widget.film.url}',
     flags: YoutubePlayerFlags(
       autoPlay: true,
-      mute: true,
+      mute: false,
     ),
   );
     // _controller = YoutubePlayerController(

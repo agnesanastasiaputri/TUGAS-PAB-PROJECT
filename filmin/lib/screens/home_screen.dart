@@ -1,6 +1,5 @@
 import 'package:filmin/models/film.dart';
 import 'package:filmin/screens/detail_screen.dart';
-import 'package:filmin/widgets/film_card.dart';
 import 'package:flutter/material.dart';
 import 'package:filmin/data/film_data.dart';
 
@@ -26,86 +25,83 @@ class _HomeScreenState extends State<HomeScreen> {
               itemBuilder: (context, index) {
                 final film = _filterFilms[index];
                 return InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => DetailScreen(film: film),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DetailScreen(film: film),
+                        ),
+                      );
+                    },
+                    child: Card(
+                      margin: const EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: 4,
                       ),
-                    );
-                  },
-                  child: Card(
-                    margin: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 4,
-                    ),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.all(8),
-                          width: 100,
-                          height: 100,
-                          child: ClipRRect(
-                            child: Image.asset(
-                              film.imageAsset,
-                              fit: BoxFit.cover,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.all(8),
+                            width: 100,
+                            height: 100,
+                            child: ClipRRect(
+                              child: Image.asset(
+                                film.imageAsset,
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
-                        ),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  film.judul,
-                                  style: const TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(film.judul,
+                                      style: const TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      )),
+                                  const SizedBox(
+                                    height: 20,
+                                  ),
+                                  Row(
+                                    children: [
+                                      const Icon(
+                                        Icons.star,
+                                        color: Colors.black,
+                                        size: 15,
+                                      ),
+                                      const SizedBox(width: 2),
+                                      Text(
+                                        film.rating.toString(),
+                                        style: const TextStyle(
+                                          fontSize: 14,
+                                        ),
+                                      ),
+                                      const Spacer(),
+                                      const Icon(
+                                        Icons.favorite,
+                                        color: Colors.black,
+                                        size: 16,
+                                      ),
+                                      const SizedBox(width: 2),
+                                      Text(
+                                        film.favorite.toString(),
+                                        style: const TextStyle(
+                                          fontSize: 14,
+                                        ),
+                                      )
+                                    ],
                                   )
-                                ),
-                                const SizedBox(
-                                  height: 20,
-                                ),
-                                Row(
-                                  children: [
-                                    const Icon(
-                                      Icons.star,
-                                      color: Colors.black,
-                                      size: 15,
-                                    ),
-                                    const SizedBox(width: 2),
-                                    Text(
-                                      film.rating.toString(),
-                                      style: const TextStyle(
-                                        fontSize: 14,
-                                      ),
-                                    ),
-                                    const Spacer(),
-                                    const Icon(
-                                      Icons.favorite,
-                                      color: Colors.black,
-                                      size: 16,
-                                    ),
-                                    const SizedBox(width: 2),
-                                    Text(
-                                      film.favorite.toString(),
-                                      style: const TextStyle(
-                                        fontSize: 14,
-                                      ),
-                                    )
-                                  ],
-                                )
-                              ],
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                  )
-                );
+                        ],
+                      ),
+                    ));
               },
             ),
           )

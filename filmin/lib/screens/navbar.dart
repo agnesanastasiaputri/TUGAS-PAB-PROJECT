@@ -5,9 +5,16 @@ import 'package:filmin/screens/profile_screen.dart';
 import 'package:filmin/screens/rate_screen.dart';
 import 'package:filmin/screens/signin_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class NavBar extends StatelessWidget {
-  const NavBar({super.key});
+  const NavBar({Key? key});
+
+  Future<String> getUsernameFromSharedPreferences() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? username = prefs.getString('username');
+    return username ?? 'No Username';
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +24,17 @@ class NavBar extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           UserAccountsDrawerHeader(
-              accountName: Text('Chandra'),
-              accountEmail: Text('Saputra@gmail.com'),
+              accountName: FutureBuilder<String>(
+                future: getUsernameFromSharedPreferences(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    return Text(snapshot.data!);
+                  } else {
+                    return Text('Loading...');
+                  }
+                },
+              ),
+              accountEmail: Text(''),
               currentAccountPicture: CircleAvatar(
                 child: ClipOval(
                   child: Image.asset(
@@ -78,11 +94,11 @@ class NavBar extends StatelessWidget {
               title: Text('Sign Out'),
               textColor: Colors.white,
               onTap: () => {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SignIn()),
-                )
-              }),
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SignIn()),
+                    )
+                  }),
         ],
       ),
     );
