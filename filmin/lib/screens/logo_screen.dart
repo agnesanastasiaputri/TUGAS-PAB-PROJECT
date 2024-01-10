@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:filmin/screens/sign_in_screen.dart';
+import 'package:filmin/screens/signin_screen.dart';
 import 'package:flutter/material.dart';
 
 class LogoScreen extends StatefulWidget {
@@ -6,32 +8,69 @@ class LogoScreen extends StatefulWidget {
   _LogoScreenState createState() => _LogoScreenState();
 }
 
-class _LogoScreenState extends State<LogoScreen> {
+class _LogoScreenState extends State<LogoScreen> with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _animation;
+
   @override
   void initState() {
     super.initState();
-    Timer(
-      Duration(seconds: 2),
-      () {
-        Navigator.pushReplacementNamed(context, '/screens.home_screen');
-      },
+    _controller = AnimationController(
+      duration: const Duration(seconds: 2),
+      vsync: this,
     );
+    _animation = CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeInOut,
+    );
+    _controller.forward();
+    _controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        Timer(
+          Duration(seconds: 2),
+          () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => SignIn()),
+            );
+          },
+        );
+      }
+    });
   }
 
-@override
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      backgroundColor: Colors.black,
       body: Center(
-        child: Container(
-          height: screenHeight, // Sesuaikan dengan kebutuhan
-          width: screenWidth, // Sesuaikan dengan kebutuhan
-          child: Image.asset(
-            'images/logo.jpg',
-            fit: BoxFit.cover,
-          ),
+        child: AnimatedBuilder(
+          animation: _animation,
+          builder: (context, child) {
+            return Transform.scale(
+              scale: _animation.value,
+              child: RotationTransition(
+                turns: _animation,
+                child: Container(
+                  height: screenHeight, // Adjust as needed
+                  width: screenWidth, // Adjust as needed
+                  child: Image.asset(
+                    'images/logo.jpg',
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            );
+          },
         ),
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:filmin/screens/favorite_screen.dart';
+import 'package:filmin/screens/logo_screen.dart';
 import 'package:filmin/screens/profile_screen.dart';
 import 'package:filmin/screens/rate_screen.dart';
 import 'package:filmin/screens/search_screen.dart';
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       // home: MainScreen(),
-      home: SignIn(),
+      home: LogoScreen(),
       // home: SignInScreen(),
       // home: SearchScreen(),
       initialRoute: '/',

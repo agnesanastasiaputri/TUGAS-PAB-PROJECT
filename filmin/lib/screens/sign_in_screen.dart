@@ -64,6 +64,7 @@ class _SignInScreenState extends State<SignInScreen> {
     return Scaffold(
       // TODO: 2. Pasang AppBar
       appBar: AppBar(
+        backgroundColor: Colors.black,
         title: const Text('FILMIN'),
       ),
       // TODO: 3. Pasang body
