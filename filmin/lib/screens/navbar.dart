@@ -54,15 +54,6 @@ class NavBar extends StatelessWidget {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => const MainScreen()))
                   }),
-          // ListTile(
-          //     iconColor: Colors.white,
-          //     leading: const Icon(Icons.star),
-          //     title: const Text('Rekomendasi Film'),
-          //     textColor: Colors.white,
-          //     onTap: () => {
-          //           Navigator.push(context,
-          //               MaterialPageRoute(builder: (context) => const RateScreen()))
-          //         }),
           ListTile(
               iconColor: Colors.white,
               leading: const Icon(Icons.favorite),

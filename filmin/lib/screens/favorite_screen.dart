@@ -1,7 +1,6 @@
 import 'package:filmin/models/film.dart';
 import 'package:filmin/screens/detail_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:filmin/data/film_data.dart';
 
 // class FavoriteScreen extends StatefulWidget {
 //   const FavoriteScreen({super.key});
