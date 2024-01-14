@@ -28,7 +28,7 @@ class Film {
     required this.favorite,
     required this.castImageUrls,
     // required this.imageUrls,
-    this.isFavorite = false, 
+    required this.isFavorite, 
   });
 
 }

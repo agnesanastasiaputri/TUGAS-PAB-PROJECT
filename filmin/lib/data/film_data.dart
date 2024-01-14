@@ -28,7 +28,7 @@ var filmList = [
       'Hunter Schafer':
           'https://th.bing.com/th/id/OIP._BAwe4BGBRLvxsMEdzp3FQHaIM?rs=1&pid=ImgDetMain',
     },
-    isFavorite: false,
+    isFavorite: true,
   ),
   Film(
     judul: 'Forrest Gump',

@@ -59,6 +59,8 @@ class _DetailScreenState extends State<DetailScreen> {
     bool favoriteStatus = !isFavorite;
     prefs.setBool('favorite_${widget.film.judul}', favoriteStatus);
 
+    print('isFavorite before: $isFavorite');
+    
     setState(() {
       isFavorite = favoriteStatus;
       if (favoriteStatus) {
@@ -68,17 +70,20 @@ class _DetailScreenState extends State<DetailScreen> {
       }
     });
 
-    _navigateToFavoriteScreen();
+    print('isFavorite after: $isFavorite');
+
+    // _navigateToFavoriteScreen();
   }
 
-  void _navigateToFavoriteScreen() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => FavoriteScreen(favoriteFilms: favoriteFilms),
-      ),
-    );
-  }
+
+  // void _navigateToFavoriteScreen() {
+  //   Navigator.push(
+  //     context,
+  //     MaterialPageRoute(
+  //       builder: (context) => FavoriteScreen(favoriteFilms: favoriteFilms),
+  //     ),
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {

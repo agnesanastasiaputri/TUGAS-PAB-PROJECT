@@ -1,4 +1,5 @@
 import 'package:filmin/main.dart';
+import 'package:filmin/screens/about_screen.dart';
 import 'package:filmin/screens/favorite_screen.dart';
 import 'package:filmin/screens/profile_screen.dart';
 import 'package:filmin/screens/signin_screen.dart';
@@ -45,36 +46,51 @@ class NavBar extends StatelessWidget {
               ),
               decoration:
                   const BoxDecoration(color: Color.fromARGB(255, 19, 17, 17))),
+          // ListTile(
+          //     iconColor: Colors.white,
+          //     leading: const Icon(Icons.home),
+          //     title: const Text('Halaman Depan'),
+          //     textColor: Colors.white,
+          //     onTap: () => {
+          //           Navigator.push(
+          //               context,
+          //               MaterialPageRoute(
+          //                   builder: (context) => const MainScreen()))
+          //         }),
+          // ListTile(
+          //     iconColor: Colors.white,
+          //     leading: const Icon(Icons.favorite),
+          //     title: const Text('Favorit'),
+          //     textColor: Colors.white,
+          //     onTap: () => {
+          //           Navigator.push(
+          //               context,
+          //               MaterialPageRoute(
+          //                   builder: (context) => const FavoriteScreen(
+          //                         favoriteFilms: [],
+          //                       )))
+          //         }),
+          // ListTile(
+          //     iconColor: Colors.white,
+          //     leading: const Icon(Icons.person),
+          //     title: const Text('Profile'),
+          //     textColor: Colors.white,
+          //     onTap: () => {
+          //           Navigator.push(
+          //               context,
+          //               MaterialPageRoute(
+          //                   builder: (context) => const ProfileScreen()))
+          //         }),
           ListTile(
               iconColor: Colors.white,
-              leading: const Icon(Icons.home),
-              title: const Text('Halaman Depan'),
-              textColor: Colors.white,
-              onTap: () => {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => const MainScreen()))
-                  }),
-          ListTile(
-              iconColor: Colors.white,
-              leading: const Icon(Icons.favorite),
-              title: const Text('Favorit'),
+              leading: const Icon(Icons.info),
+              title: const Text('About Us'),
               textColor: Colors.white,
               onTap: () => {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const FavoriteScreen(favoriteFilms: [],)))
-                  }),
-          ListTile(
-              iconColor: Colors.white,
-              leading: const Icon(Icons.person),
-              title: const Text('Profile'),
-              textColor: Colors.white,
-              onTap: () => {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const ProfileScreen()))
+                            builder: (context) => const AboutScreen()))
                   }),
           const Divider(),
           ListTile(
