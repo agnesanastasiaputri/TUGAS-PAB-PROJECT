@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Login with SharedPreferences',
-      home: isLoggedin ? HomeScreen() : SignIn(),
+      home: isLoggedin ? const HomeScreen() : SignIn(),
     );
   }
 }
@@ -39,14 +39,10 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('Login Page'),
-      //   backgroundColor: Colors.black,
-      // ),
       backgroundColor: Colors.black,
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -56,23 +52,23 @@ class _SignInState extends State<SignIn> {
                 width: 350,
               ),
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
                 decoration: BoxDecoration(
                   color: Colors.grey,
                   borderRadius: BorderRadius.circular(8.0),
                 ),
                 child: TextFormField(
                   controller: _usernameController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Username',
                     border: InputBorder.none,
                   ),
                 ),
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               Container(
                   padding:
-                      EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                      const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
                   decoration: BoxDecoration(
                     color: Colors.grey,
                     borderRadius: BorderRadius.circular(8.0),
@@ -97,22 +93,22 @@ class _SignInState extends State<SignIn> {
                       ),
                     ),
                   )),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
               ElevatedButton(
                 onPressed: () {
                   _handleLogin();
                 },
-                child: Text(
+                child: const Text(
                   'Login',
                   style: TextStyle(color: Colors.black),
                 ),
               ),
-              SizedBox(height: 10.0),
+              const SizedBox(height: 10.0),
               TextButton(
                 onPressed: () {
                   _navigateToSignup();
                 },
-                child: Text('Create an account',
+                child: const Text('Create an account',
                     style: TextStyle(color: Colors.blue)),
               ),
             ],
@@ -138,15 +134,15 @@ class _SignInState extends State<SignIn> {
 
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => MainScreen()),
+          MaterialPageRoute(builder: (context) => const MainScreen()),
         );
       } else {
         showDialog(
           context: context,
           builder: (context) {
             return AlertDialog(
-              title: Text('    Login Failed'),
-              content: SingleChildScrollView(
+              title: const Text('    Login Failed'),
+              content: const SingleChildScrollView(
                 child: Column(
                   children: [
                     Text('Wrong Pass or invalid User.'),
@@ -158,7 +154,7 @@ class _SignInState extends State<SignIn> {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: Text('OK'),
+                  child: const Text('OK'),
                 ),
               ],
             );
@@ -170,8 +166,8 @@ class _SignInState extends State<SignIn> {
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: Text('    Login Failed'),
-            content: SingleChildScrollView(
+            title: const Text('    Login Failed'),
+            content: const SingleChildScrollView(
               child: Column(
                 children: [
                   Text('Username and password cannot be empty.'),
@@ -183,7 +179,7 @@ class _SignInState extends State<SignIn> {
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                child: Text('OK'),
+                child: const Text('OK'),
               ),
             ],
           );
@@ -213,13 +209,13 @@ class _SignupPageState extends State<SignupPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Signup Page'),
+        title: const Text('Register Page'),
         backgroundColor: Colors.black ,
       ),
       backgroundColor: Colors.black,
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -229,23 +225,23 @@ class _SignupPageState extends State<SignupPage> {
                 width: 350,
               ),
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
                 decoration: BoxDecoration(
                   color: Colors.grey,
                   borderRadius: BorderRadius.circular(8.0),
                 ),
                 child: TextFormField(
                   controller: _usernameController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Username',
                     border: InputBorder.none,
                   ),
                 ),
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               Container(
                   padding:
-                      EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                      const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
                   decoration: BoxDecoration(
                     color: Colors.grey,
                     borderRadius: BorderRadius.circular(8.0),
@@ -270,13 +266,13 @@ class _SignupPageState extends State<SignupPage> {
                       ),
                     ),
                   )),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
               ElevatedButton(
                 onPressed: () {
                   _handleSignup();
                 },
-                child: Text(
-                  'Signup',
+                child: const Text(
+                  'Register',
                   style: TextStyle(color: Colors.black),
                 ),
               ),
@@ -305,16 +301,11 @@ class _SignupPageState extends State<SignupPage> {
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: Text('    Signup Failed'),
-            content: SingleChildScrollView(
+            title: const Text('    Signup Failed'),
+            content: const SingleChildScrollView(
               child: Column(
                 children: [
                   Text('Wrong Pass or invalid User.'),
-                  // Image.network(
-                  //   'https://media.tenor.com/b5_GZ8tV6oEAAAAi/pikachu-pokemon.gif',
-                  //   height: 200,
-                  //   width: 200,
-                  // ),
                 ],
               ),
             ),
@@ -323,7 +314,7 @@ class _SignupPageState extends State<SignupPage> {
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                child: Text('OK'),
+                child: const Text('OK'),
               ),
             ],
           );

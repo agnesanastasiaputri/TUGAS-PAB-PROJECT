@@ -1,8 +1,6 @@
 import 'package:filmin/main.dart';
 import 'package:filmin/screens/favorite_screen.dart';
-import 'package:filmin/screens/home_screen.dart';
 import 'package:filmin/screens/profile_screen.dart';
-import 'package:filmin/screens/rate_screen.dart';
 import 'package:filmin/screens/signin_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -30,11 +28,11 @@ class NavBar extends StatelessWidget {
                   if (snapshot.hasData) {
                     return Text(snapshot.data!);
                   } else {
-                    return Text('Loading...');
+                    return const Text('Loading...');
                   }
                 },
               ),
-              accountEmail: Text(''),
+              accountEmail: const Text(''),
               currentAccountPicture: CircleAvatar(
                 child: ClipOval(
                   child: Image.asset(
@@ -46,52 +44,52 @@ class NavBar extends StatelessWidget {
                 ),
               ),
               decoration:
-                  BoxDecoration(color: Color.fromARGB(255, 19, 17, 17))),
+                  const BoxDecoration(color: Color.fromARGB(255, 19, 17, 17))),
           ListTile(
               iconColor: Colors.white,
-              leading: Icon(Icons.home),
-              title: Text('Halaman Depan'),
+              leading: const Icon(Icons.home),
+              title: const Text('Halaman Depan'),
               textColor: Colors.white,
               onTap: () => {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => MainScreen()))
+                        MaterialPageRoute(builder: (context) => const MainScreen()))
                   }),
+          // ListTile(
+          //     iconColor: Colors.white,
+          //     leading: const Icon(Icons.star),
+          //     title: const Text('Rekomendasi Film'),
+          //     textColor: Colors.white,
+          //     onTap: () => {
+          //           Navigator.push(context,
+          //               MaterialPageRoute(builder: (context) => const RateScreen()))
+          //         }),
           ListTile(
               iconColor: Colors.white,
-              leading: Icon(Icons.star),
-              title: Text('Rekomendasi Film'),
-              textColor: Colors.white,
-              onTap: () => {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => RateScreen()))
-                  }),
-          ListTile(
-              iconColor: Colors.white,
-              leading: Icon(Icons.favorite),
-              title: Text('Favorit'),
+              leading: const Icon(Icons.favorite),
+              title: const Text('Favorit'),
               textColor: Colors.white,
               onTap: () => {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => FavoriteScreen()))
+                            builder: (context) => const FavoriteScreen(favoriteFilms: [],)))
                   }),
           ListTile(
               iconColor: Colors.white,
-              leading: Icon(Icons.person),
-              title: Text('Profile'),
+              leading: const Icon(Icons.person),
+              title: const Text('Profile'),
               textColor: Colors.white,
               onTap: () => {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => ProfileScreen()))
+                            builder: (context) => const ProfileScreen()))
                   }),
-          Divider(),
+          const Divider(),
           ListTile(
               iconColor: Colors.white,
-              leading: Icon(Icons.exit_to_app),
-              title: Text('Sign Out'),
+              leading: const Icon(Icons.exit_to_app),
+              title: const Text('Log Out'),
               textColor: Colors.white,
               onTap: () => {
                     Navigator.push(

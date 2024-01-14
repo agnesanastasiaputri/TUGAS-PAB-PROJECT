@@ -1,6 +1,5 @@
 import 'package:filmin/models/film.dart';
 import 'package:filmin/screens/detail_screen.dart';
-import 'package:filmin/widgets/film_card.dart';
 import 'package:flutter/material.dart';
 import 'package:filmin/data/film_data.dart';
 
@@ -41,7 +40,7 @@ class _RateScreenState extends State<RateScreen> {
                     );
                   },
                   child: Card(
-                    margin: EdgeInsets.symmetric(
+                    margin: const EdgeInsets.symmetric(
                       horizontal: 16,
                       vertical: 4,
                     ),
@@ -49,7 +48,7 @@ class _RateScreenState extends State<RateScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          padding: EdgeInsets.all(8),
+                          padding: const EdgeInsets.all(8),
                           width: 100,
                           height: 100,
                           child: ClipRRect(
@@ -75,28 +74,28 @@ class _RateScreenState extends State<RateScreen> {
                                 ),
                                 Row(
                                   children: [
-                                    Icon(
+                                    const Icon(
                                       Icons.star,
                                       color: Colors.black,
                                       size: 15,
                                     ),
-                                    SizedBox(width: 2),
+                                    const SizedBox(width: 2),
                                     Text(
                                       film.rating.toString(),
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         fontSize: 14,
                                       ),
                                     ),
-                                    Spacer(),
-                                    Icon(
+                                    const Spacer(),
+                                    const Icon(
                                       Icons.favorite,
                                       color: Colors.black,
                                       size: 16,
                                     ),
-                                    SizedBox(width: 2),
+                                    const SizedBox(width: 2),
                                     Text(
                                       film.favorite.toString(),
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         fontSize: 14,
                                       ),
                                     )

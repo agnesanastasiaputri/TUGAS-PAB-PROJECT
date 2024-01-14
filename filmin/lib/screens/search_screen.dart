@@ -1,7 +1,3 @@
-// import 'package:flutter/material.dart';
-// import 'package:filmin/data/film_data.dart';
-// import 'package:filmin/models/film.dart';
-
 import 'package:filmin/data/film_data.dart';
 import 'package:filmin/models/film.dart';
 import 'package:flutter/material.dart';
@@ -55,9 +51,9 @@ class _SearchScreenState extends State<SearchScreen> {
                 color: Colors.white,
               ),
               child: TextField(
-                controller: _searchController, // Add this line
+                controller: _searchController, 
                 autofocus: false,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: "Cari Film ...",
                   prefixIcon: Icon(Icons.search),
                   border: InputBorder.none,
@@ -87,7 +83,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       );
                     },
                     child: Card(
-                      margin: EdgeInsets.symmetric(
+                      margin: const EdgeInsets.symmetric(
                         horizontal: 16,
                         vertical: 4,
                       ),
@@ -95,7 +91,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            padding: EdgeInsets.all(8),
+                            padding: const EdgeInsets.all(8),
                             width: 100,
                             height: 100,
                             child: ClipRRect(

@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:filmin/screens/sign_in_screen.dart';
 import 'package:filmin/screens/signin_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -61,8 +60,8 @@ class _LogoScreenState extends State<LogoScreen> with SingleTickerProviderStateM
               child: RotationTransition(
                 turns: _animation,
                 child: Container(
-                  height: screenHeight, // Adjust as needed
-                  width: screenWidth, // Adjust as needed
+                  height: screenHeight,
+                  width: screenWidth,
                   child: Image.asset(
                     'images/logo.jpg',
                     fit: BoxFit.cover,

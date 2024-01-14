@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:filmin/models/film.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:filmin/screens/favorite_screen.dart';
 
 class DetailScreen extends StatefulWidget {
   final Film film;
@@ -13,41 +14,24 @@ class DetailScreen extends StatefulWidget {
 }
 
 class _DetailScreenState extends State<DetailScreen> {
-  // final videoURL = 'https://youtu.be/NxW_X4kzeus?si=QU5d_AgEuOrwcWg_';
 
   late YoutubePlayerController _controller;
-  // bool isPlaying = false;
 
   bool isFavorite = false;
   bool isSignedIn = false;
 
   @override
   void initState() {
-    // final videoID = YoutubePlayer.convertUrlToId(videoURL);
 
-_controller = YoutubePlayerController(
-    initialVideoId: '${widget.film.url}',
-    flags: YoutubePlayerFlags(
-      autoPlay: true,
-      mute: false,
-    ),
-  );
-    // _controller = YoutubePlayerController(
-    //   initialVideoId: videoID!,
-    //   flags: const YoutubePlayerFlags(
-    //     autoPlay: true,
-    //     mute: true,
-    //   ),
-    // )..addListener(() {
-    //     if (isPlaying != _controller.value.isPlaying) {
-    //       setState(() {
-    //         isPlaying = _controller.value.isPlaying;
-    //       });
-    //     }
-    //   });
+    _controller = YoutubePlayerController(
+      initialVideoId: '${widget.film.url}',
+      flags: const YoutubePlayerFlags(
+        autoPlay: true,
+        mute: false,
+      ),
+    );
 
     super.initState();
-    _checkSignInStatus();
     _loadFavoriteStatus();
   }
 
@@ -56,31 +40,11 @@ _controller = YoutubePlayerController(
     _controller.dispose();
     super.dispose();
   }
-void listener(){
-  print('Status pemutar video berubah: ${_controller.value.playerState}');
-}
 
-  // void _togglePlaying() {
-  //   setState(() {
-  //     if (isPlaying) {
-  //       _controller.pause();
-  //     } else {
-  //       _controller.play();
-  //     }
-  //     isPlaying = !isPlaying;
-  //   });
-  // }
-
-  // Memeriksa status sign in
-  void _checkSignInStatus() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    bool signedIn = prefs.getBool('isSignedIn') ?? false;
-    setState(() {
-      isSignedIn = signedIn;
-    });
+  void listener() {
+    print('Status pemutar video berubah: ${_controller.value.playerState}');
   }
 
-  // Memeriksa status favorit
   void _loadFavoriteStatus() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bool favorite = prefs.getBool('favorite_${widget.film.judul}') ?? false;
@@ -89,24 +53,33 @@ void listener(){
     });
   }
 
+  List<Film> favoriteFilms = [];
+
   Future<void> _toggleFavorite() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-
-    // Memeriksa apakah pengguna sudah sign in
-    if (isSignedIn) {
-      // Jika belum sign in, arahkan ke SignInScreen
-      WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
-        Navigator.pushReplacementNamed(context, '/signin');
-      });
-      return;
-    }
 
     bool favoriteStatus = !isFavorite;
     prefs.setBool('favorite_${widget.film.judul}', favoriteStatus);
 
     setState(() {
       isFavorite = favoriteStatus;
+      if (favoriteStatus) {
+        favoriteFilms.add(widget.film);
+      } else {
+        favoriteFilms.remove(widget.film);
+      }
     });
+
+    _navigateToFavoriteScreen();
+  }
+
+  void _navigateToFavoriteScreen() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => FavoriteScreen(favoriteFilms: favoriteFilms),
+      ),
+    );
   }
 
   @override
@@ -114,16 +87,23 @@ void listener(){
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 19, 17, 17),
+        actions: [
+          IconButton(
+            icon: Icon(
+              isFavorite ? Icons.favorite : Icons.favorite_border,
+              color: Colors.white,
+            ),
+            onPressed: _toggleFavorite,
+          ),
+        ],
       ),
       backgroundColor: Colors.black,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // DetailHeader
             Stack(
               children: [
-                // image utama
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: ClipRRect(
@@ -141,39 +121,25 @@ void listener(){
                 ),
               ],
             ),
-            // DetailInfo
-            // YoutubePlayer(
-            //   controller: _controller,
-            //   showVideoProgressIndicator: true,
-            //   progressIndicatorColor: Colors.red,
-            // ),
+
             YoutubePlayerBuilder(
-            player: YoutubePlayer(
-              controller: _controller,
-              showVideoProgressIndicator: true,
-              progressIndicatorColor: Colors.amber,
-              progressColors: ProgressBarColors(
-                playedColor: Colors.amber,
-                handleColor: Colors.amberAccent,
+              player: YoutubePlayer(
+                controller: _controller,
+                showVideoProgressIndicator: true,
+                progressIndicatorColor: Colors.amber,
+                progressColors: const ProgressBarColors(
+                  playedColor: Colors.amber,
+                  handleColor: Colors.amberAccent,
+                ),
+                onReady: () {
+                  _controller.addListener(listener);
+                },
               ),
-              onReady: () {
-                _controller.addListener(listener);
+              builder: (context, player) {
+                return player;
               },
             ),
-            builder: (context, player) {
-              return player;
-            },
-          ),
-            // Center(
-            //   child: IconButton(
-            //     icon: Icon(
-            //      isPlaying ? Icons.pause : Icons.play_arrow,
-            //      color: Colors.white,
-            //      size: 48,
-            //     ),
-            //     onPressed: _togglePlaying,
-            //   ),
-            // ),
+            
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Column(
@@ -182,14 +148,13 @@ void listener(){
                   const SizedBox(
                     height: 16,
                   ),
-                  // info atas (nama candi dan tombol favorit
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   ),
                   const SizedBox(
                     height: 16,
                   ),
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
@@ -204,7 +169,7 @@ void listener(){
                   const SizedBox(
                     height: 15,
                   ),
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
@@ -221,14 +186,14 @@ void listener(){
                     children: [
                       Text(
                         '${widget.film.judul}',
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                       ),
                     ],
                   ),
                   const SizedBox(
                     height: 5,
                   ),
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
@@ -245,14 +210,14 @@ void listener(){
                     children: [
                       Text(
                         '${widget.film.director}',
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                       ),
                     ],
                   ),
                   const SizedBox(
                     height: 5,
                   ),
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
@@ -269,14 +234,14 @@ void listener(){
                     children: [
                       Text(
                         '${widget.film.penulis}',
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                       ),
                     ],
                   ),
                   const SizedBox(
                     height: 5,
                   ),
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
@@ -293,14 +258,14 @@ void listener(){
                     children: [
                       Text(
                         '${widget.film.tanggalRilis}',
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                       ),
                     ],
                   ),
                   const SizedBox(
                     height: 5,
                   ),
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
@@ -317,14 +282,14 @@ void listener(){
                     children: [
                       Text(
                         '${widget.film.bahasa}',
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                       ),
                     ],
                   ),
                   const SizedBox(
                     height: 5,
                   ),
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
@@ -341,7 +306,7 @@ void listener(){
                     children: [
                       Text(
                         '${widget.film.negara}',
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                       ),
                     ],
                   ),
@@ -349,7 +314,7 @@ void listener(){
                     height: 16,
                   ),
                   // info bawah (deskripsi)
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
@@ -368,7 +333,7 @@ void listener(){
                     child: Text(
                       widget.film.sinopsis,
                       textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                     ),
                   ),
                 ],
@@ -380,7 +345,7 @@ void listener(){
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Center(
+                  const Center(
                     child: Text(
                       'Cast',
                       textAlign: TextAlign.center,
@@ -436,7 +401,7 @@ void listener(){
                               const SizedBox(height: 8),
                               Text(
                                 actorName,
-                                style: TextStyle(color: Colors.white),
+                                style: const TextStyle(color: Colors.white),
                               ),
                             ],
                           ),
@@ -453,123 +418,3 @@ void listener(){
     );
   }
 }
-
-            // DetailGallery
-//             Padding(
-//               padding: const EdgeInsets.all(15),
-//               child: Column(
-//                 crossAxisAlignment: CrossAxisAlignment.start,
-//                 children: [
-//                   Center(
-//                     child: Text(
-//                       'Cast',
-//                       textAlign: TextAlign.center,
-//                       style: TextStyle(
-//                           fontSize: 20,
-//                           fontWeight: FontWeight.bold,
-//                           color: Colors.white),
-//                     ),
-//                   ),
-//                   const SizedBox(
-//                     height: 10,
-//                   ),
-//                   // SizedBox(
-//                   //   height: 100,
-//                   //   child: ListView.builder(
-//                   //     scrollDirection: Axis.horizontal,
-//                   //     itemCount: widget.film.imageUrls.length,
-//                   //     itemBuilder: (context, index) {
-//                   //       return Padding(
-//                   //         padding: const EdgeInsets.only(right: 8),
-//                   //         child: GestureDetector(
-//                   //           onTap: () {},
-//                   //           child: Container(
-//                   //             decoration: BoxDecoration(
-//                   //               borderRadius: BorderRadius.circular(50),
-//                   //               border: Border.all(
-//                   //                 color: Colors.white,
-//                   //                 width: 2,
-//                   //               ),
-//                   //             ),
-//                   //             child: ClipRRect(
-//                   //               borderRadius: BorderRadius.circular(10),
-//                   //               child: CachedNetworkImage(
-//                   //                 imageUrl: widget.film.imageUrls[index],
-//                   //                 width: 120,
-//                   //                 height: 120,
-//                   //                 fit: BoxFit.cover,
-//                   //                 placeholder: (context, url) => Container(
-//                   //                   width: 150,
-//                   //                   height: 150,
-//                   //                   color: Colors.white,
-//                   //                 ),
-//                   //                 errorWidget: (context, url, error) =>
-//                   //                     const Icon(Icons.error),
-//                   //               ),
-//                   //             ),
-//                   //           ),
-//                   //         ),
-//                   //       );
-//                   //     },
-//                   //   ),
-//                   // ),
-//                   SizedBox(
-//                     height: 160, // Adjust the height based on your preference
-//                     child: ListView.builder(
-//                       scrollDirection: Axis.horizontal,
-//                       itemCount: widget.film.castImageUrls.length,
-//                       itemBuilder: (context, index) {
-//                         final actorName =
-//                             widget.film.castImageUrls.keys.toList()[index];
-//                         final actorImageUrl =
-//                             widget.film.castImageUrls.values.toList()[index];
-
-//                         return Padding(
-//                           padding: const EdgeInsets.only(right: 8),
-//                           child: Column(
-//                             children: [
-//                               Container(
-//                                 decoration: BoxDecoration(
-//                                   borderRadius: BorderRadius.circular(50),
-//                                   border: Border.all(
-//                                     color: Colors.white,
-//                                     width: 2,
-//                                   ),
-//                                 ),
-//                                 child: ClipRRect(
-//                                   borderRadius: BorderRadius.circular(10),
-//                                   child: CachedNetworkImage(
-//                                     imageUrl: actorImageUrl,
-//                                     width: 120,
-//                                     height: 120,
-//                                     fit: BoxFit.cover,
-//                                     placeholder: (context, url) => Container(
-//                                       width: 150,
-//                                       height: 150,
-//                                       color: Colors.white,
-//                                     ),
-//                                     errorWidget: (context, url, error) =>
-//                                         const Icon(Icons.error),
-//                                   ),
-//                                 ),
-//                               ),
-//                               const SizedBox(height: 8),
-//                               Text(
-//                                 actorName,
-//                                 style: TextStyle(color: Colors.white),
-//                               ),
-//                             ],
-//                           ),
-//                         );
-//                       },
-//                     ),
-//                   )
-//                 ],
-//               ),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }

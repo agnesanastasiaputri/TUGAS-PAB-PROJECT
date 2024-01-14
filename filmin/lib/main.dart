@@ -1,11 +1,7 @@
 import 'package:filmin/screens/favorite_screen.dart';
 import 'package:filmin/screens/logo_screen.dart';
 import 'package:filmin/screens/profile_screen.dart';
-import 'package:filmin/screens/rate_screen.dart';
 import 'package:filmin/screens/search_screen.dart';
-import 'package:filmin/screens/sign_in_screen.dart';
-import 'package:filmin/screens/signin_screen.dart';
-import 'package:filmin/widgets/film_card.dart';
 import 'package:flutter/material.dart';
 import 'package:filmin/screens/home_screen.dart';
 import 'package:filmin/screens/navbar.dart';
@@ -32,15 +28,11 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      // home: MainScreen(),
       home: LogoScreen(),
-      // home: SignInScreen(),
-      // home: SearchScreen(),
       initialRoute: '/',
       routes: {
         '/homescreen': (context) => const HomeScreen(),
-        '/ratescreen': (context) => const RateScreen(),
-        '/favoritescreen': (context) => const FavoriteScreen(),
+        '/favoritescreen': (context) => const FavoriteScreen(favoriteFilms: [],),
         '/profilescreen': (context) => const ProfileScreen()
       },
     );
@@ -55,21 +47,22 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  
   int _currentIndex = 0;
   final List<Widget> _children = [
-    HomeScreen(),
-    RateScreen(),
-    FavoriteScreen(),
-    ProfileScreen()
+    const HomeScreen(),
+    //const RateScreen(),
+    const FavoriteScreen(favoriteFilms: [],),
+    const ProfileScreen()
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: NavBar(),
+      drawer: const NavBar(),
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 19, 17, 17),
-        title: Text(
+        backgroundColor: const Color.fromARGB(255, 19, 17, 17),
+        title: const Text(
           'FILMIN',
           style: TextStyle(
             color: Colors.white, // Warna teks title
@@ -78,12 +71,12 @@ class _MainScreenState extends State<MainScreen> {
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.search),
+            icon: const Icon(Icons.search),
             onPressed: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => SearchScreen(),
+                  builder: (context) => const SearchScreen(),
                 ),
               );
             },
@@ -92,9 +85,8 @@ class _MainScreenState extends State<MainScreen> {
       ),
       body: _children[_currentIndex],
       bottomNavigationBar: Theme(
-        //TODO: 4. Buat data dan child dari Theme
         data: Theme.of(context)
-            .copyWith(canvasColor: Color.fromARGB(255, 19, 17, 17)),
+            .copyWith(canvasColor: const Color.fromARGB(255, 19, 17, 17)),
         child: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           currentIndex: _currentIndex,
@@ -103,7 +95,7 @@ class _MainScreenState extends State<MainScreen> {
               _currentIndex = index;
             });
           },
-          items: [
+          items: const [
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.home,
@@ -111,13 +103,13 @@ class _MainScreenState extends State<MainScreen> {
               ),
               label: 'Home',
             ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.star,
-                color: Colors.white,
-              ),
-              label: 'Rate',
-            ),
+            // BottomNavigationBarItem(
+            //   icon: Icon(
+            //     Icons.star,
+            //     color: Colors.white,
+            //   ),
+            //   label: 'Rate',
+            // ),
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.favorite,
@@ -133,7 +125,7 @@ class _MainScreenState extends State<MainScreen> {
               label: 'Profile',
             ),
           ],
-          selectedItemColor: Color.fromARGB(255, 255, 255, 255),
+          selectedItemColor: const Color.fromARGB(255, 255, 255, 255),
           unselectedItemColor: Colors.white38,
           showUnselectedLabels: true,
         ),
