@@ -66,6 +66,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                   const SizedBox(
                                     height: 20,
                                   ),
+                                  Text(film.bahasa,
+                                      style: const TextStyle(
+                                        fontSize: 10,
+                                        fontWeight: FontWeight.bold,
+                                      )),
+                                  Text(film.tanggalRilis,
+                                      style: const TextStyle(
+                                        fontSize: 10,
+                                        fontWeight: FontWeight.bold,
+                                      )),
+                                  const SizedBox(
+                                    height: 4,
+                                  ),
                                   Row(
                                     children: [
                                       const Icon(

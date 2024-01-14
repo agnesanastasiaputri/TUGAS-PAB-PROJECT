@@ -51,7 +51,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 color: Colors.white,
               ),
               child: TextField(
-                controller: _searchController, 
+                controller: _searchController,
                 autofocus: false,
                 decoration: const InputDecoration(
                   hintText: "Cari Film ...",

@@ -14,7 +14,6 @@ class DetailScreen extends StatefulWidget {
 }
 
 class _DetailScreenState extends State<DetailScreen> {
-
   late YoutubePlayerController _controller;
 
   bool isFavorite = false;
@@ -22,7 +21,6 @@ class _DetailScreenState extends State<DetailScreen> {
 
   @override
   void initState() {
-
     _controller = YoutubePlayerController(
       initialVideoId: '${widget.film.url}',
       flags: const YoutubePlayerFlags(
@@ -121,7 +119,6 @@ class _DetailScreenState extends State<DetailScreen> {
                 ),
               ],
             ),
-
             YoutubePlayerBuilder(
               player: YoutubePlayer(
                 controller: _controller,
@@ -139,7 +136,6 @@ class _DetailScreenState extends State<DetailScreen> {
                 return player;
               },
             ),
-            
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Column(
@@ -339,7 +335,6 @@ class _DetailScreenState extends State<DetailScreen> {
                 ],
               ),
             ),
-
             Padding(
               padding: const EdgeInsets.all(15),
               child: Column(
