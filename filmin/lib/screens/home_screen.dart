@@ -64,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         fontWeight: FontWeight.bold,
                                       )),
                                   const SizedBox(
-                                    height: 20,
+                                    height: 30,
                                   ),
                                   Text(film.bahasa,
                                       style: const TextStyle(
@@ -79,35 +79,35 @@ class _HomeScreenState extends State<HomeScreen> {
                                   const SizedBox(
                                     height: 4,
                                   ),
-                                  Row(
-                                    children: [
-                                      const Icon(
-                                        Icons.star,
-                                        color: Colors.black,
-                                        size: 15,
-                                      ),
-                                      const SizedBox(width: 2),
-                                      Text(
-                                        film.rating.toString(),
-                                        style: const TextStyle(
-                                          fontSize: 14,
-                                        ),
-                                      ),
-                                      const Spacer(),
-                                      const Icon(
-                                        Icons.favorite,
-                                        color: Colors.black,
-                                        size: 16,
-                                      ),
-                                      const SizedBox(width: 2),
-                                      Text(
-                                        film.favorite.toString(),
-                                        style: const TextStyle(
-                                          fontSize: 14,
-                                        ),
-                                      )
-                                    ],
-                                  )
+                                  // Row(
+                                  //   children: [
+                                  //     const Icon(
+                                  //       Icons.book,
+                                  //       color: Colors.black,
+                                  //       size: 15,
+                                  //     ),
+                                  //     const SizedBox(width: 2),
+                                  //     Text(
+                                  //       film.bahasa,
+                                  //       style: const TextStyle(
+                                  //         fontSize: 14,
+                                  //       ),
+                                  //     ),
+                                  //     const Spacer(),
+                                  //     const Icon(
+                                  //       Icons.date_range_rounded,
+                                  //       color: Colors.black,
+                                  //       size: 16,
+                                  //     ),
+                                  //     const SizedBox(width: 2),
+                                  //     Text(
+                                  //       film.tanggalRilis,
+                                  //       style: const TextStyle(
+                                  //         fontSize: 14,
+                                  //       ),
+                                  //     )
+                                  //   ],
+                                  // )
                                 ],
                               ),
                             ),

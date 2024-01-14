@@ -7,10 +7,11 @@ import 'package:filmin/screens/favorite_screen.dart';
 
 class DetailScreen extends StatefulWidget {
   final Film film;
+
   const DetailScreen({Key? key, required this.film}) : super(key: key);
 
   @override
-  State<DetailScreen> createState() => _DetailScreenState();
+  _DetailScreenState createState() => _DetailScreenState();
 }
 
 class _DetailScreenState extends State<DetailScreen> {

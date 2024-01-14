@@ -4,17 +4,27 @@ import 'package:flutter/material.dart';
 import 'package:filmin/data/film_data.dart';
 
 class FavoriteScreen extends StatefulWidget {
-  const FavoriteScreen({super.key, required List<Film> favoriteFilms});
+  final List<Film> favoriteFilms;
+
+  const FavoriteScreen({Key? key, required this.favoriteFilms}) : super(key: key);
 
   @override
   State<FavoriteScreen> createState() => _FavoriteScreenState();
 }
 
 class _FavoriteScreenState extends State<FavoriteScreen> {
-  final List<Film> _filterFilms = filmList;
+  late List<Film> _favoriteFilms;
 
-  List<Film> getFavoriteFilms() {
-    return _filterFilms.where((film) => film.isFavorite).toList();
+  @override
+  void initState() {
+    super.initState();
+    _updateFavoriteFilms();
+  }
+
+  void _updateFavoriteFilms() {
+    setState(() {
+      _favoriteFilms = widget.favoriteFilms.where((film) => film.isFavorite).toList();
+    });
   }
 
   @override
@@ -25,18 +35,26 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
         children: [
           Expanded(
             child: ListView.builder(
-              itemCount: getFavoriteFilms().length,
+              itemCount: _favoriteFilms.length,
               itemBuilder: (context, index) {
-                final film = getFavoriteFilms()[index];
+                final film = _favoriteFilms[index];
                 return InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => DetailScreen(film: film),
-                        ),
-                      );
-                    },
+                  onTap: () async {
+                    final result = await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailScreen(film: film),
+                      ),
+                    );
+
+                    // Cek hasil dari Navigator.pop
+                    if (result != null && result is bool) {
+                      // Perbarui daftar film favorit jika terjadi perubahan
+                      if (result) {
+                        _updateFavoriteFilms();
+                      }
+                    }
+                  },
                     child: Card(
                       margin: const EdgeInsets.symmetric(
                         horizontal: 16,
