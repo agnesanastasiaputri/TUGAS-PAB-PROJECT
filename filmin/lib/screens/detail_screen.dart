@@ -374,7 +374,38 @@ class _DetailScreenState extends State<DetailScreen> {
                           padding: const EdgeInsets.only(right: 8),
                           child: Column(
                             children: [
-                              Container(
+                              GestureDetector(
+                                onTap: () {
+                                  showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return Dialog(
+                                        child: Hero(
+                                          tag: actorName,
+                                          child: CachedNetworkImage(
+                                            imageUrl: actorImageUrl,
+                                            // Konfigurasi ukuran gambar yang diperbesar
+                                            width: MediaQuery.of(context)
+                                                .size
+                                                .width,
+                                            height: MediaQuery.of(context)
+                                                .size
+                                                .height,
+                                            fit: BoxFit.contain,
+                                            placeholder: (context, url) =>
+                                                Container(
+                                              color: Colors.grey,
+                                            ),
+                                            errorWidget:
+                                                (context, url, error) =>
+                                                    const Icon(Icons.error),
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  );
+                                },
+                              child: Container(
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(50),
                                   border: Border.all(
@@ -398,6 +429,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                         const Icon(Icons.error),
                                   ),
                                 ),
+                              ),
                               ),
                               const SizedBox(height: 8),
                               Text(

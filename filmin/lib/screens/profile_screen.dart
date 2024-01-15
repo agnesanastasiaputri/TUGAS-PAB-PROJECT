@@ -1,6 +1,10 @@
+import 'dart:io';
+
 import 'package:filmin/screens/signin_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:convert';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key});
@@ -10,12 +14,41 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  
   Future<String> getUsernameFromSharedPreferences() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? username = prefs.getString('username');
     return username ?? 'No Username';
   }
+
+  File? image;
+
+  Future<void> _pickImage() async {
+    final picker = ImagePicker();
+    final pickedImage = await picker.pickImage(source: ImageSource.gallery);
+    if (pickedImage != null) {
+      setState(() {
+        image = File(pickedImage.path);
+      });
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      prefs.setString('imagePath', image!.path);
+    }
+  }
+
+  @override
+void initState() {
+  super.initState();
+  _getImageFromSharedPreferences();
+}
+
+Future<void> _getImageFromSharedPreferences() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  String? imagePath = prefs.getString('imagePath');
+  if (imagePath != null) {
+    setState(() {
+      image = File(imagePath);
+    });
+  }
+}
 
   @override
   Widget build(BuildContext context) {
@@ -25,38 +58,51 @@ class _ProfileScreenState extends State<ProfileScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            ClipOval(
-              child: Container(
-                width: 120,
-                height: 120,
-                color: Colors.white,
-                child: const CircleAvatar(
-                  radius: 30,
-                  backgroundImage: NetworkImage('images/logo.jpg'),
+            Stack(
+              alignment: Alignment.bottomRight,
+              children: [
+                ClipOval(
+                  child: Container(
+                    width: 120,
+                    height: 120,
+                    color: Colors.white,
+                    child: CircleAvatar(
+                      radius: 30,
+                      backgroundImage: image != null ? FileImage(image!) : null,
+                    ),
+                  ),
                 ),
-              ),
+                Positioned(
+                  bottom: 0,
+                  right: 0,
+                  child: IconButton(
+                    onPressed: () async {
+                      await _pickImage();
+                    },
+                    icon: Icon(Icons.camera_alt),
+                    color: Colors.white,
+                  ),
+                ),
+              ],
             ),
             const SizedBox(height: 22),
-            // Menempatkan username di atas
             FutureBuilder<String>(
-            future: getUsernameFromSharedPreferences(),
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return Text(
-                  snapshot.data!,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                  ),
-                );
-              } else {
-                return const CircularProgressIndicator();
-              }
-            },
-          ),
+              future: getUsernameFromSharedPreferences(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return Text(
+                    snapshot.data!,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                    ),
+                  );
+                } else {
+                  return const CircularProgressIndicator();
+                }
+              },
+            ),
             const SizedBox(height: 24),
-
-            const SizedBox(height: 100), 
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -72,7 +118,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               child: const Text(
                 'Log Out',
                 style: TextStyle(
-                  color: Colors.black, 
+                  color: Colors.black,
                   fontWeight: FontWeight.bold,
                 ),
               ),

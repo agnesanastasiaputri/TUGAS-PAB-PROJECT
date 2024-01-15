@@ -7,7 +7,8 @@ class LogoScreen extends StatefulWidget {
   _LogoScreenState createState() => _LogoScreenState();
 }
 
-class _LogoScreenState extends State<LogoScreen> with SingleTickerProviderStateMixin {
+class _LogoScreenState extends State<LogoScreen>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
 
@@ -58,7 +59,12 @@ class _LogoScreenState extends State<LogoScreen> with SingleTickerProviderStateM
             return Transform.scale(
               scale: _animation.value,
               child: RotationTransition(
-                turns: _animation,
+                turns: Tween(begin: 0.0, end: 4.0).animate(
+                  CurvedAnimation(
+                    parent: _controller,
+                    curve: Curves.linear,
+                  ),
+                ),
                 child: Container(
                   height: screenHeight,
                   width: screenWidth,

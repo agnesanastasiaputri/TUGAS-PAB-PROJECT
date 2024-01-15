@@ -46,7 +46,7 @@ class _AboutScreenState extends State<AboutScreen> {
                     borderRadius: BorderRadius.circular(20),
                     child: AspectRatio(
                       aspectRatio: 2 / 1,
-                      child: Image.network(
+                      child: Image.asset(
                         'images/logo.jpg',
                         width: double.infinity,
                         height: double.infinity,
@@ -88,7 +88,7 @@ class _AboutScreenState extends State<AboutScreen> {
                   ),
                   Center(
                     child: Text(
-                        'FILMIN merupakan aplikasi film yang diciptakan oleh sekelompok mahasiswa dari universitas Multi Data Palembang. Aplikasi ini dirilis pada tanggal 15 Januari 2024',
+                      'FILMIN merupakan aplikasi film yang diciptakan oleh sekelompok mahasiswa dari universitas Multi Data Palembang. Aplikasi ini dirilis pada tanggal 15 Januari 2024',
                       textAlign: TextAlign.center,
                       style: const TextStyle(color: Colors.white),
                     ),
@@ -130,28 +130,51 @@ class _AboutScreenState extends State<AboutScreen> {
                           padding: const EdgeInsets.only(right: 8),
                           child: Column(
                             children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(50),
-                                  border: Border.all(
-                                    color: Colors.white,
-                                    width: 2,
-                                  ),
-                                ),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(48),
-                                  child: CachedNetworkImage(
-                                    imageUrl: foto,
-                                    width: 100,
-                                    height: 100,
-                                    fit: BoxFit.cover,
-                                    placeholder: (context, url) => Container(
-                                      width: 130,
-                                      height: 130,
+                              GestureDetector(
+                                onTap: () {
+                                  showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return Dialog(
+                                        child: Hero(
+                                          tag: nama,
+                                          child: Image(
+                                            image: AssetImage(foto),
+                                            // Konfigurasi ukuran gambar yang diperbesar
+                                            width: MediaQuery.of(context)
+                                                .size
+                                                .width,
+                                            height: MediaQuery.of(context)
+                                                .size
+                                                .height,
+                                            fit: BoxFit.contain,
+                                            errorBuilder:
+                                                (context, url, error) =>
+                                                    const Icon(Icons.error),
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  );
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(50),
+                                    border: Border.all(
                                       color: Colors.white,
+                                      width: 2,
                                     ),
-                                    errorWidget: (context, url, error) =>
-                                        const Icon(Icons.error),
+                                  ),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(48),
+                                    child: Image(
+                                      image: AssetImage(foto),
+                                      width: 100,
+                                      height: 100,
+                                      fit: BoxFit.cover,
+                                      errorBuilder: (context, url, error) =>
+                                          const Icon(Icons.error),
+                                    ),
                                   ),
                                 ),
                               ),

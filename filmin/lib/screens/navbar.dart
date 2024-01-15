@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:filmin/main.dart';
 import 'package:filmin/screens/about_screen.dart';
 import 'package:filmin/screens/favorite_screen.dart';
@@ -5,6 +7,7 @@ import 'package:filmin/screens/profile_screen.dart';
 import 'package:filmin/screens/signin_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:image_picker/image_picker.dart';
 
 class NavBar extends StatelessWidget {
   const NavBar({Key? key});
