@@ -46,7 +46,7 @@ class _AboutScreenState extends State<AboutScreen> {
                     borderRadius: BorderRadius.circular(20),
                     child: AspectRatio(
                       aspectRatio: 2 / 1,
-                      child: Image.network(
+                      child: Image.asset(
                         'images/logo.jpg',
                         width: double.infinity,
                         height: double.infinity,

@@ -67,7 +67,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               style: ElevatedButton.styleFrom(
                 primary: Colors.white,
                 onPrimary: Colors.black,
-                padding: const EdgeInsets.symmetric(horizontal: 170),
+                padding: const EdgeInsets.symmetric(horizontal: 80),
               ),
               child: const Text(
                 'Log Out',
