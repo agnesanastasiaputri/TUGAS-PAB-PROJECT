@@ -28,8 +28,8 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      // home: LogoScreen(),
-home: MainScreen(),
+       home: LogoScreen(),
+    // home : MainScreen(),
       initialRoute: '/',
       routes: {
         '/homescreen': (context) => const HomeScreen(),
