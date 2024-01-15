@@ -113,7 +113,7 @@ Future<void> _getImageFromSharedPreferences() async {
               style: ElevatedButton.styleFrom(
                 primary: Colors.white,
                 onPrimary: Colors.black,
-                padding: const EdgeInsets.symmetric(horizontal: 170),
+                padding: const EdgeInsets.symmetric(horizontal: 80),
               ),
               child: const Text(
                 'Log Out',

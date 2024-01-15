@@ -4,27 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:filmin/data/film_data.dart';
 
 class FavoriteScreen extends StatefulWidget {
-  final List<Film> favoriteFilms;
-
-  const FavoriteScreen({Key? key, required this.favoriteFilms}) : super(key: key);
+  const FavoriteScreen({super.key, required List<Film> favoriteFilms});
 
   @override
   State<FavoriteScreen> createState() => _FavoriteScreenState();
 }
 
 class _FavoriteScreenState extends State<FavoriteScreen> {
-  late List<Film> _favoriteFilms;
+  final List<Film> _filterFilms = filmList;
 
-  @override
-  void initState() {
-    super.initState();
-    _updateFavoriteFilms();
-  }
-
-  void _updateFavoriteFilms() {
-    setState(() {
-      _favoriteFilms = widget.favoriteFilms.where((film) => film.isFavorite).toList();
-    });
+  List<Film> getFavoriteFilms() {
+    return _filterFilms.where((film) => film.isFavorite).toList();
   }
 
   @override
@@ -35,26 +25,18 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
         children: [
           Expanded(
             child: ListView.builder(
-              itemCount: _favoriteFilms.length,
+              itemCount: getFavoriteFilms().length,
               itemBuilder: (context, index) {
-                final film = _favoriteFilms[index];
+                final film = getFavoriteFilms()[index];
                 return InkWell(
-                  onTap: () async {
-                    final result = await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => DetailScreen(film: film),
-                      ),
-                    );
-
-                    // Cek hasil dari Navigator.pop
-                    if (result != null && result is bool) {
-                      // Perbarui daftar film favorit jika terjadi perubahan
-                      if (result) {
-                        _updateFavoriteFilms();
-                      }
-                    }
-                  },
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DetailScreen(film: film),
+                        ),
+                      );
+                    },
                     child: Card(
                       margin: const EdgeInsets.symmetric(
                         horizontal: 16,
@@ -86,7 +68,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                                         fontWeight: FontWeight.bold,
                                       )),
                                   const SizedBox(
-                                    height: 20,
+                                    height: 30,
                                   ),
                                   Text(film.bahasa,
                                       style: const TextStyle(
@@ -101,35 +83,35 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                                   const SizedBox(
                                     height: 4,
                                   ),
-                                  Row(
-                                    children: [
-                                      const Icon(
-                                        Icons.star,
-                                        color: Colors.black,
-                                        size: 15,
-                                      ),
-                                      const SizedBox(width: 2),
-                                      Text(
-                                        film.rating.toString(),
-                                        style: const TextStyle(
-                                          fontSize: 14,
-                                        ),
-                                      ),
-                                      const Spacer(),
-                                      const Icon(
-                                        Icons.favorite,
-                                        color: Colors.black,
-                                        size: 16,
-                                      ),
-                                      const SizedBox(width: 2),
-                                      Text(
-                                        film.favorite.toString(),
-                                        style: const TextStyle(
-                                          fontSize: 14,
-                                        ),
-                                      )
-                                    ],
-                                  )
+                                  // Row(
+                                  //   children: [
+                                  //     const Icon(
+                                  //       Icons.star,
+                                  //       color: Colors.black,
+                                  //       size: 15,
+                                  //     ),
+                                  //     const SizedBox(width: 2),
+                                  //     Text(
+                                  //       film.rating.toString(),
+                                  //       style: const TextStyle(
+                                  //         fontSize: 14,
+                                  //       ),
+                                  //     ),
+                                  //     const Spacer(),
+                                  //     const Icon(
+                                  //       Icons.favorite,
+                                  //       color: Colors.black,
+                                  //       size: 16,
+                                  //     ),
+                                  //     const SizedBox(width: 2),
+                                  //     Text(
+                                  //       film.favorite.toString(),
+                                  //       style: const TextStyle(
+                                  //         fontSize: 14,
+                                  //       ),
+                                  //     )
+                                  //   ],
+                                  // )
                                 ],
                               ),
                             ),

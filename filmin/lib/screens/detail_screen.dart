@@ -61,9 +61,11 @@ class _DetailScreenState extends State<DetailScreen> {
     prefs.setBool('favorite_${widget.film.judul}', favoriteStatus);
 
     print('isFavorite before: $isFavorite');
-    
+
     setState(() {
+      // Set ulang isFavorite saat ada perubahan status favorit
       isFavorite = favoriteStatus;
+
       if (favoriteStatus) {
         favoriteFilms.add(widget.film);
       } else {
@@ -72,10 +74,7 @@ class _DetailScreenState extends State<DetailScreen> {
     });
 
     print('isFavorite after: $isFavorite');
-
-    // _navigateToFavoriteScreen();
   }
-
 
   // void _navigateToFavoriteScreen() {
   //   Navigator.push(
